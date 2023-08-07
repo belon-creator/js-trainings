@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      .gallery {
+        list-style: none;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .gallery__item {
+        width: 300px;
+        height: 400px;
+        border: 1px solid #0a0a0a;
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 8px;
+      }
+
+      .gallery li:not(:last-child) {
+        margin-bottom: 6px;
+      }
+
+      .gallery img {
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: all 1000ms linear 600ms;
+        object-fit: cover;
+      }
+
+      .gallery img.appear {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    </style>
+    <title>lazy cats</title>
+  </head>
+  <body>
+    <a class="nav-link-item" href="./index.html">Go back</a>
+    <ul class="js-list gallery"></ul>
+
+    <script type="module" src="./js/cats.js"></script>
+  </body>
+</html>
