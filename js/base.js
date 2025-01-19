@@ -96,3 +96,145 @@
 
 // module 2
 
+// const logItems = function (array) {
+//   for (let i = 0; i < array.length; i += 1) {
+//     let num = i + 1;
+//     console.log(`${num} - ${array[i]}`);
+//   }
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
+
+// logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+
+// const calculateEngravingPrice = function (message, pricePerWord) {
+//   const splited = message.split(' ');
+//   const totalPrice = splited.length * pricePerWord;
+//   return `price for graving "${message}" is ${totalPrice}`;
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(
+//   calculateEngravingPrice(
+//     'Proin sociis natoque et magnis parturient montes mus',
+//     10,
+//   ),
+// ); // 80
+
+// console.log(
+//   calculateEngravingPrice(
+//     'Proin sociis natoque et magnis parturient montes mus',
+//     20,
+//   ),
+// ); // 160
+
+// console.log(
+//   calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+// ); // 240
+
+// console.log(
+//   calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+// ); // 120
+
+// const findLongestWord = function (string) {
+//   const arrWords = string.split(' ');
+//   let longestWord = arrWords[0];
+
+//   for (let i = 0; i < arrWords.length; i += 1) {
+//     if (arrWords[i].length > longestWord.length) {
+//       longestWord = arrWords[i];
+//     }
+//   }
+//   return console.log('longestWord - ', longestWord);
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // 'jumped'
+
+// console.log(findLongestWord('Google do a roll')); // 'Google'
+
+// console.log(findLongestWord('May the force be with you')); // 'force'
+
+// const formatString = function (string) {
+//   const arr = string.split('');
+
+//   if (arr.length >= 40) {
+//     arr.splice(40);
+//   } else {
+//     return string;
+//   }
+
+//   return arr.join('').concat('...');
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// // вернется оригинальная строка
+
+// console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+// // вернется форматированная строка
+
+// console.log(formatString('Curabitur ligula sapien.'));
+// // вернется оригинальная строка
+
+// console.log(
+//   formatString(
+//     'Nunc sed turpis. Curabitur a felis in nunc fringilla tristique.',
+//   ),
+// );
+// // вернется форматированная строка
+
+// const checkForSpam = function (message) {
+//   const arr = message.toLowerCase();
+//   return arr.includes('sale') || arr.includes('spam');
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(checkForSpam('Latest technology news')); // false
+
+// console.log(checkForSpam('JavaScript weekly newsletter')); // false
+
+// console.log(checkForSpam('Get best sale offers now!')); // true
+
+// console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
+
+// let input;
+// const numbers = [];
+// let total = 0;
+
+// while (true) {
+//   input = prompt("Введите число (или нажмите Cancel для выхода):");
+
+//   if (!input) {
+//     break; 
+//   }
+
+//   const number = Number(input); 
+
+//   if (isNaN(number)) {
+//     alert("Было введено не число, попробуйте еще раз"); 
+//   } else {
+//     numbers.push(number); 
+//   }
+// }
+
+// if (numbers.length > 0) {
+//   for (const num of numbers) {
+//     total += num; 
+//   }
+//   console.log(`Общая сумма чисел равна ${total}`);
+// } else {
+//   console.log("Вы не ввели ни одного числа.");
+// }
+
