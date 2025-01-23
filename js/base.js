@@ -217,24 +217,195 @@
 //   input = prompt("Введите число (или нажмите Cancel для выхода):");
 
 //   if (!input) {
-//     break; 
+//     break;
 //   }
 
-//   const number = Number(input); 
+//   const number = Number(input);
 
 //   if (isNaN(number)) {
-//     alert("Было введено не число, попробуйте еще раз"); 
+//     alert("Было введено не число, попробуйте еще раз");
 //   } else {
-//     numbers.push(number); 
+//     numbers.push(number);
 //   }
 // }
 
 // if (numbers.length > 0) {
 //   for (const num of numbers) {
-//     total += num; 
+//     total += num;
 //   }
 //   console.log(`Общая сумма чисел равна ${total}`);
 // } else {
 //   console.log("Вы не ввели ни одного числа.");
 // }
 
+// const cart = [23, 5, 78, 81, 9, 7, 50, 777, 888, 555, 20];
+
+// function addElements() {
+//   let total = 0;
+
+//   for (const element of cart) {
+//     total += element;
+//     console.log(element);
+//   }
+//   console.log(total);
+// }
+
+// // addElements(cart);
+// addElements(cart);
+
+// gpt tasks
+
+//
+const car = {
+  brand: 'Toyota',
+  model: 'Corolla',
+  year: 2020,
+  color: 'red',
+  mileage: 50000,
+  owner: {
+    name: 'Alex',
+    age: 35,
+    city: 'Kyiv',
+  },
+};
+
+car.color = 'black';
+car.mileage += 10000;
+car.isInsured = true;
+car.owner.city = 'Lviv';
+
+console.log(car);
+
+// добавляет поле mood со значением 'happy'
+// заменяет значение hobby на 'skydiving'
+// заменяет значение premium на false
+// выводит содержимое объекта user в формате ключ:значение используя Object.keys() и for...of
+
+const user = {
+  name: 'Mango',
+  age: 20,
+  hobby: 'html',
+  premium: true,
+};
+
+user.mood = 'happy';
+user.hobby = 'skydiving';
+user.premium = false;
+
+for (const key of Object.keys(user)) {
+  console.log(`${key} : ${user[key]}`);
+}
+
+const countProps = function (obj) {
+  const countOfKeys = Object.keys(obj).length;
+  return countOfKeys;
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(countProps({})); // 0
+
+console.log(countProps({ name: 'Mango', age: 2 })); // 2
+
+console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // 3
+
+const findBestEmployee = function (employees) {
+  let bestEmployee = '';
+  let bestEmployeeScore = 0;
+
+  for (const employee in employees) {
+    if (employees[employee] > bestEmployeeScore) {
+      bestEmployeeScore = employees[employee];
+      bestEmployee = employee;
+    }
+  }
+  return bestEmployee;
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(
+  findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  }),
+); // lorence
+
+console.log(
+  findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  }),
+); // mango
+
+console.log(
+  findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  }),
+); // lux
+
+const countTotalSalary = function (employees) {
+  const salaries = Object.values(employees);
+  let totalSalary = 0;
+
+  for (const salary of salaries) {
+    totalSalary += salary;
+  }
+  return totalSalary;
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(countTotalSalary({})); // 0
+
+console.log(
+  countTotalSalary({
+    mango: 100,
+    poly: 150,
+    alfred: 80,
+  }),
+); // 330
+
+console.log(
+  countTotalSalary({
+    kiwi: 200,
+    lux: 50,
+    chelsy: 150,
+  }),
+); // 400
+
+const products = [
+  { name: 'Радар', price: 1300, quantity: 4 },
+  { name: 'Сканер', price: 2700, quantity: 3 },
+  { name: 'Дроид', price: 400, quantity: 7 },
+  { name: 'Захват', price: 1200, quantity: 2 },
+];
+
+const getAllPropValues = function (arr, prop) {
+  const values = [];
+
+  for (const element of arr) {
+    if (element[prop] !== undefined) {
+      values.push(element[prop]);
+    }
+  }
+  return values;
+};
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер', 'Дроид', 'Захват']
+
+console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]
+
+console.log(getAllPropValues(products, 'category')); // []
