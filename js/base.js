@@ -256,156 +256,299 @@
 // gpt tasks
 
 //
-const car = {
-  brand: 'Toyota',
-  model: 'Corolla',
-  year: 2020,
-  color: 'red',
-  mileage: 50000,
-  owner: {
-    name: 'Alex',
-    age: 35,
-    city: 'Kyiv',
-  },
-};
+// const car = {
+//   brand: 'Toyota',
+//   model: 'Corolla',
+//   year: 2020,
+//   color: 'red',
+//   mileage: 50000,
+//   owner: {
+//     name: 'Alex',
+//     age: 35,
+//     city: 'Kyiv',
+//   },
+// };
 
-car.color = 'black';
-car.mileage += 10000;
-car.isInsured = true;
-car.owner.city = 'Lviv';
+// car.color = 'black';
+// car.mileage += 10000;
+// car.isInsured = true;
+// car.owner.city = 'Lviv';
 
-console.log(car);
+// console.log(car);
 
-// добавляет поле mood со значением 'happy'
-// заменяет значение hobby на 'skydiving'
-// заменяет значение premium на false
-// выводит содержимое объекта user в формате ключ:значение используя Object.keys() и for...of
+// // добавляет поле mood со значением 'happy'
+// // заменяет значение hobby на 'skydiving'
+// // заменяет значение premium на false
+// // выводит содержимое объекта user в формате ключ:значение используя Object.keys() и for...of
 
-const user = {
-  name: 'Mango',
-  age: 20,
-  hobby: 'html',
-  premium: true,
-};
+// const user = {
+//   name: 'Mango',
+//   age: 20,
+//   hobby: 'html',
+//   premium: true,
+// };
 
-user.mood = 'happy';
-user.hobby = 'skydiving';
-user.premium = false;
+// user.mood = 'happy';
+// user.hobby = 'skydiving';
+// user.premium = false;
 
-for (const key of Object.keys(user)) {
-  console.log(`${key} : ${user[key]}`);
-}
+// for (const key of Object.keys(user)) {
+//   console.log(`${key} : ${user[key]}`);
+// }
 
-const countProps = function (obj) {
-  const countOfKeys = Object.keys(obj).length;
-  return countOfKeys;
-};
+// const countProps = function (obj) {
+//   const countOfKeys = Object.keys(obj).length;
+//   return countOfKeys;
+// };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countProps({})); // 0
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(countProps({})); // 0
 
-console.log(countProps({ name: 'Mango', age: 2 })); // 2
+// console.log(countProps({ name: 'Mango', age: 2 })); // 2
 
-console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // 3
+// console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // 3
 
-const findBestEmployee = function (employees) {
-  let bestEmployee = '';
-  let bestEmployeeScore = 0;
+// const findBestEmployee = function (employees) {
+//   let bestEmployee = '';
+//   let bestEmployeeScore = 0;
 
-  for (const employee in employees) {
-    if (employees[employee] > bestEmployeeScore) {
-      bestEmployeeScore = employees[employee];
-      bestEmployee = employee;
-    }
-  }
-  return bestEmployee;
-};
+//   for (const employee in employees) {
+//     if (employees[employee] > bestEmployeeScore) {
+//       bestEmployeeScore = employees[employee];
+//       bestEmployee = employee;
+//     }
+//   }
+//   return bestEmployee;
+// };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(
-  findBestEmployee({
-    ann: 29,
-    david: 35,
-    helen: 1,
-    lorence: 99,
-  }),
-); // lorence
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(
+//   findBestEmployee({
+//     ann: 29,
+//     david: 35,
+//     helen: 1,
+//     lorence: 99,
+//   }),
+// ); // lorence
 
-console.log(
-  findBestEmployee({
-    poly: 12,
-    mango: 17,
-    ajax: 4,
-  }),
-); // mango
+// console.log(
+//   findBestEmployee({
+//     poly: 12,
+//     mango: 17,
+//     ajax: 4,
+//   }),
+// ); // mango
 
-console.log(
-  findBestEmployee({
-    lux: 147,
-    david: 21,
-    kiwi: 19,
-    chelsy: 38,
-  }),
-); // lux
+// console.log(
+//   findBestEmployee({
+//     lux: 147,
+//     david: 21,
+//     kiwi: 19,
+//     chelsy: 38,
+//   }),
+// ); // lux
 
-const countTotalSalary = function (employees) {
-  const salaries = Object.values(employees);
-  let totalSalary = 0;
+// const countTotalSalary = function (employees) {
+//   const salaries = Object.values(employees);
+//   let totalSalary = 0;
 
-  for (const salary of salaries) {
-    totalSalary += salary;
-  }
-  return totalSalary;
-};
+//   for (const salary of salaries) {
+//     totalSalary += salary;
+//   }
+//   return totalSalary;
+// };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countTotalSalary({})); // 0
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(countTotalSalary({})); // 0
 
-console.log(
-  countTotalSalary({
-    mango: 100,
-    poly: 150,
-    alfred: 80,
-  }),
-); // 330
+// console.log(
+//   countTotalSalary({
+//     mango: 100,
+//     poly: 150,
+//     alfred: 80,
+//   }),
+// ); // 330
 
-console.log(
-  countTotalSalary({
-    kiwi: 200,
-    lux: 50,
-    chelsy: 150,
-  }),
-); // 400
+// console.log(
+//   countTotalSalary({
+//     kiwi: 200,
+//     lux: 50,
+//     chelsy: 150,
+//   }),
+// ); // 400
 
-const products = [
-  { name: 'Радар', price: 1300, quantity: 4 },
-  { name: 'Сканер', price: 2700, quantity: 3 },
-  { name: 'Дроид', price: 400, quantity: 7 },
-  { name: 'Захват', price: 1200, quantity: 2 },
+// const products = [
+//   { name: 'Радар', price: 1300, quantity: 4 },
+//   { name: 'Сканер', price: 2700, quantity: 3 },
+//   { name: 'Дроид', price: 400, quantity: 7 },
+//   { name: 'Захват', price: 1200, quantity: 2 },
+// ];
+
+// const getAllPropValues = function (arr, prop) {
+//   const values = [];
+
+//   for (const element of arr) {
+//     if (element[prop] !== undefined) {
+//       values.push(element[prop]);
+//     }
+//   }
+//   return values;
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер', 'Дроид', 'Захват']
+
+// console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]
+
+// console.log(getAllPropValues(products, 'category')); // []
+
+// const book = {
+//   title: 'The Last Kingdom',
+//   author: 'Bernard Cornwell',
+//   genres: ['historical prose', 'adventure'],
+//   rating: 8.38,
+// };
+// const keys = Object.keys(book);
+
+// for (const key of keys) {
+//   console.log(`${key} - ${book[key]}`);
+// }
+
+// const products = [
+//   { name: 'Радар', price: 1300, quantity: 4 },
+//   { name: 'Сканер', price: 2700, quantity: 3 },
+//   { name: 'Дроид', price: 400, quantity: 7 },
+//   { name: 'Захват', price: 1200, quantity: 2 },
+// ];
+
+// const calculateTotalPrice = function (allProdcuts, productName) {
+//   // console.log(qwe);
+
+//   for (const element of allProdcuts) {
+//     if (element.name === productName) {
+//       return `заказано ${productName}, количество ${element.quantity} по цене ${
+//         element.price
+//       }, общая стоимость ${element.price * element.quantity}`;
+//     }
+//   }
+//   return `товара ${productName} нету`;
+// };
+
+// /*
+//  * Вызовы функции для проверки работоспособности твоей реализации.
+//  */
+// console.log(calculateTotalPrice(products, 'Радар')); // 5200
+// console.log(calculateTotalPrice(products, 'аива'));
+// console.log(calculateTotalPrice(products, 'Дроид')); // 2800
+
+// 1
+
+const users = [
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 28 },
 ];
 
-const getAllPropValues = function (arr, prop) {
-  const values = [];
-
-  for (const element of arr) {
-    if (element[prop] !== undefined) {
-      values.push(element[prop]);
+function findUserByName(users, userName) {
+  for (const user of users) {
+    if (userName === user.name) {
+      return user;
     }
   }
-  return values;
-};
+  return 'user is not found';
+}
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер', 'Дроид', 'Захват']
+console.log(findUserByName(users, 'Bob')); // { id: 2, name: 'Bob', age: 30 }
+console.log(findUserByName(users, 'David')); // null
 
-console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]
+// 2
 
-console.log(getAllPropValues(products, 'category')); // []
+const products1 = [
+  { name: 'Laptop', price: 1500, quantity: 2 },
+  { name: 'Phone', price: 800, quantity: 5 },
+  { name: 'Tablet', price: 1200, quantity: 3 },
+];
+
+function calculateTotal(products) {
+  for (const product of products) {
+    return `total price is ${product.price * product.quantity}`;
+  }
+}
+
+console.log(calculateTotal(products1)); // ??? (порахуєш сам 😉)
+
+// 3
+
+const students = [
+  { name: 'Alice', score: 85 },
+  { name: 'Bob', score: 60 },
+  { name: 'Charlie', score: 78 },
+  { name: 'David', score: 50 },
+];
+
+function getPassedStudents(students, minScore) {
+  const passedStudents = [];
+  for (const student of students) {
+    if (student.score > minScore) {
+      passedStudents.push(student.name);
+    }
+  }
+  return passedStudents;
+}
+
+console.log(getPassedStudents(students, 70)); // ['Alice', 'Charlie']
+
+// 4
+
+const products = [
+  { name: 'TV', price: 500 },
+  { name: 'Laptop', price: 1200 },
+  { name: 'Phone', price: 800 },
+];
+
+function findMostExpensiveProduct(products) {
+  let mostExpensiveProduct = products[0];
+
+  for (const product of products) {
+    if (product.price > mostExpensiveProduct.price) {
+      mostExpensiveProduct = product;
+    }
+  }
+
+  return mostExpensiveProduct.name;
+}
+
+console.log(findMostExpensiveProduct(products)); // 'Laptop'
+
+const usersInCity = [
+  { name: 'Alice', city: 'Kyiv' },
+  { name: 'Bob', city: 'Lviv' },
+  { name: 'Charlie', city: 'Kyiv' },
+  { name: 'David', city: 'Odesa' },
+  { name: 'Eve', city: 'Lviv' },
+];
+
+function countUsersByCity(users) {
+  const cityCounts = {};
+
+  for (const user of users) {
+    if (cityCounts[user.city]) {
+      cityCounts[user.city] += 1;
+    } else {
+      cityCounts[user.city] = 1;
+    }
+  }
+
+  return cityCounts;
+}
+
+console.log(countUsersByCity(usersInCity));
+// { Kyiv: 2, Lviv: 2, Odesa: 1 }
