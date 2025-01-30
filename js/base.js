@@ -451,104 +451,206 @@
 
 // 1
 
-const users = [
-  { id: 1, name: 'Alice', age: 25 },
-  { id: 2, name: 'Bob', age: 30 },
-  { id: 3, name: 'Charlie', age: 28 },
-];
+// const users = [
+//   { id: 1, name: 'Alice', age: 25 },
+//   { id: 2, name: 'Bob', age: 30 },
+//   { id: 3, name: 'Charlie', age: 28 },
+// ];
 
-function findUserByName(users, userName) {
-  for (const user of users) {
-    if (userName === user.name) {
-      return user;
+// function findUserByName(users, userName) {
+//   for (const user of users) {
+//     if (userName === user.name) {
+//       return user;
+//     }
+//   }
+//   return 'user is not found';
+// }
+
+// console.log(findUserByName(users, 'Bob')); // { id: 2, name: 'Bob', age: 30 }
+// console.log(findUserByName(users, 'David')); // null
+
+// // 2
+
+// const products1 = [
+//   { name: 'Laptop', price: 1500, quantity: 2 },
+//   { name: 'Phone', price: 800, quantity: 5 },
+//   { name: 'Tablet', price: 1200, quantity: 3 },
+// ];
+
+// function calculateTotal(products) {
+//   for (const product of products) {
+//     return `total price is ${product.price * product.quantity}`;
+//   }
+// }
+
+// console.log(calculateTotal(products1)); // ??? (порахуєш сам 😉)
+
+// // 3
+
+// const students = [
+//   { name: 'Alice', score: 85 },
+//   { name: 'Bob', score: 60 },
+//   { name: 'Charlie', score: 78 },
+//   { name: 'David', score: 50 },
+// ];
+
+// function getPassedStudents(students, minScore) {
+//   const passedStudents = [];
+//   for (const student of students) {
+//     if (student.score > minScore) {
+//       passedStudents.push(student.name);
+//     }
+//   }
+//   return passedStudents;
+// }
+
+// console.log(getPassedStudents(students, 70)); // ['Alice', 'Charlie']
+
+// // 4
+
+// const products = [
+//   { name: 'TV', price: 500 },
+//   { name: 'Laptop', price: 1200 },
+//   { name: 'Phone', price: 800 },
+// ];
+
+// function findMostExpensiveProduct(products) {
+//   let mostExpensiveProduct = products[0];
+
+//   for (const product of products) {
+//     if (product.price > mostExpensiveProduct.price) {
+//       mostExpensiveProduct = product;
+//     }
+//   }
+
+//   return mostExpensiveProduct.name;
+// }
+
+// console.log(findMostExpensiveProduct(products)); // 'Laptop'
+
+// const usersInCity = [
+//   { name: 'Alice', city: 'Kyiv' },
+//   { name: 'Bob', city: 'Lviv' },
+//   { name: 'Charlie', city: 'Kyiv' },
+//   { name: 'David', city: 'Odesa' },
+//   { name: 'Eve', city: 'Lviv' },
+// ];
+
+// function countUsersByCity(users) {
+//   const cityCounts = {};
+
+//   for (const user of users) {
+//     if (cityCounts[user.city]) {
+//       cityCounts[user.city] += 1;
+//     } else {
+//       cityCounts[user.city] = 1;
+//     }
+//   }
+
+//   return cityCounts;
+// }
+
+// console.log(countUsersByCity(usersInCity));
+// { Kyiv: 2, Lviv: 2, Odesa: 1 }
+
+const numbers = [10, 25, 38, 41, 55, 62];
+
+function filterNumbers(arr, filterFunction) {
+  const filteredNumbers = [];
+
+  for (const num of arr) {
+    if (filterFunction(num)) {
+      filteredNumbers.push(num);
     }
   }
-  return 'user is not found';
+  return filteredNumbers;
 }
 
-console.log(findUserByName(users, 'Bob')); // { id: 2, name: 'Bob', age: 30 }
-console.log(findUserByName(users, 'David')); // null
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+// Виклики:
+console.log(filterNumbers(numbers, isEven)); // [10, 38, 62]
+console.log(filterNumbers(numbers, isOdd)); // [25, 41, 55]
 
 // 2
-
-const products1 = [
-  { name: 'Laptop', price: 1500, quantity: 2 },
-  { name: 'Phone', price: 800, quantity: 5 },
-  { name: 'Tablet', price: 1200, quantity: 3 },
-];
-
-function calculateTotal(products) {
-  for (const product of products) {
-    return `total price is ${product.price * product.quantity}`;
-  }
+function operate(a, b, callback) {
+  return callback(a, b);
+}
+function add(x, y) {
+  return x + y;
+}
+function multiply(x, y) {
+  return x * y;
 }
 
-console.log(calculateTotal(products1)); // ??? (порахуєш сам 😉)
+// Виклики:
+console.log(operate(5, 3, add)); // 8
+console.log(operate(5, 3, multiply)); // 15
 
 // 3
 
-const students = [
-  { name: 'Alice', score: 85 },
-  { name: 'Bob', score: 60 },
-  { name: 'Charlie', score: 78 },
-  { name: 'David', score: 50 },
-];
-
-function getPassedStudents(students, minScore) {
-  const passedStudents = [];
-  for (const student of students) {
-    if (student.score > minScore) {
-      passedStudents.push(student.name);
-    }
-  }
-  return passedStudents;
+function processString(str, callback) {
+  return callback(str);
 }
 
-console.log(getPassedStudents(students, 70)); // ['Alice', 'Charlie']
+function toUpperCase(str) {
+  return str.toUpperCase();
+}
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+// Виклики:
+console.log(processString('hello', toUpperCase)); // "HELLO"
+console.log(processString('hello', reverseString)); // "olleh"
 
 // 4
 
-const products = [
-  { name: 'TV', price: 500 },
-  { name: 'Laptop', price: 1200 },
-  { name: 'Phone', price: 800 },
-];
+const arr = [1, 2, 3, 4, 5];
 
-function findMostExpensiveProduct(products) {
-  let mostExpensiveProduct = products[0];
-
-  for (const product of products) {
-    if (product.price > mostExpensiveProduct.price) {
-      mostExpensiveProduct = product;
-    }
+function forEachElement(arr, callback) {
+  for (let i = 0; i < arr.length; i += 1) {
+    callback(arr[i]);
+    console.log(arr[i]);
   }
-
-  return mostExpensiveProduct.name;
+}
+function logItem(item) {
+  return item;
 }
 
-console.log(findMostExpensiveProduct(products)); // 'Laptop'
+// Виклик:
+forEachElement(arr, logItem);
+// 1
+// 2
+// 3
+// 4
+// 5
 
-const usersInCity = [
-  { name: 'Alice', city: 'Kyiv' },
-  { name: 'Bob', city: 'Lviv' },
-  { name: 'Charlie', city: 'Kyiv' },
-  { name: 'David', city: 'Odesa' },
-  { name: 'Eve', city: 'Lviv' },
+// 5
+
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 20 },
 ];
 
-function countUsersByCity(users) {
-  const cityCounts = {};
-
-  for (const user of users) {
-    if (cityCounts[user.city]) {
-      cityCounts[user.city] += 1;
-    } else {
-      cityCounts[user.city] = 1;
-    }
-  }
-
-  return cityCounts;
+function sortBy(users, key, callback) {
+  const copyUsers = [...users];
+  return copyUsers.sort((a, b) => callback(a[key], b[key]));
 }
 
-console.log(countUsersByCity(usersInCity));
-// { Kyiv: 2, Lviv: 2, Odesa: 1 }
+const compareAscending = (a, b) => a - b;
+const compareDescending = (a, b) => b - a;
+
+// Виклики:
+console.log(sortBy(users, 'age', compareAscending));
+// [{ name: 'Charlie', age: 20 }, { name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }]
+
+console.log(sortBy(users, 'age', compareDescending));
+// [{ name: 'Bob', age: 30 }, { name: 'Alice', age: 25 }, { name: 'Charlie', age: 20 }]
