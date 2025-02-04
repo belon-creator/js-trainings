@@ -846,90 +846,229 @@
 
 // 1
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// Очікуваний результат: [2, 4, 6, 8, 10]
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// // Очікуваний результат: [2, 4, 6, 8, 10]
 
-const evenArr = numbers.filter(number => number % 2 === 0);
-console.log(evenArr);
+// const evenArr = numbers.filter(number => number % 2 === 0);
+// console.log(evenArr);
 
-// 2
+// // 2
 
-const words = ['apple', 'banana', 'cherry', 'kiwi', 'watermelon'];
-// Очікуваний результат: ['banana', 'cherry', 'watermelon']
-const filteredWords = words.filter(word => word.length > 5);
-console.log(filteredWords);
+// const words = ['apple', 'banana', 'cherry', 'kiwi', 'watermelon'];
+// // Очікуваний результат: ['banana', 'cherry', 'watermelon']
+// const filteredWords = words.filter(word => word.length > 5);
+// console.log(filteredWords);
 
-// 3
+// // 3
 
-const users = [
-  { name: 'Alice', age: 17 },
-  { name: 'Bob', age: 21 },
-  { name: 'Charlie', age: 16 },
-  { name: 'David', age: 19 },
-];
-// Очікуваний результат: [{ name: 'Bob', age: 21 }, { name: 'David', age: 19 }]
-const filteredUsers = users.filter(user => user.age >= 18);
-console.log(filteredUsers);
+// const users = [
+//   { name: 'Alice', age: 17 },
+//   { name: 'Bob', age: 21 },
+//   { name: 'Charlie', age: 16 },
+//   { name: 'David', age: 19 },
+// ];
+// // Очікуваний результат: [{ name: 'Bob', age: 21 }, { name: 'David', age: 19 }]
+// const filteredUsers = users.filter(user => user.age >= 18);
+// console.log(filteredUsers);
 
-// 4
+// // 4
 
-const products = [
-  { name: 'Laptop', price: 1500 },
-  { name: 'Phone', price: 800 },
-  { name: 'Tablet', price: 700 },
-];
-// Очікуваний результат: [{ name: 'Phone', price: 800 }, { name: 'Tablet', price: 700 }]
-const filteredProducts = products.filter(product => product.price < 1000);
-console.log(filteredProducts);
+// const products = [
+//   { name: 'Laptop', price: 1500 },
+//   { name: 'Phone', price: 800 },
+//   { name: 'Tablet', price: 700 },
+// ];
+// // Очікуваний результат: [{ name: 'Phone', price: 800 }, { name: 'Tablet', price: 700 }]
+// const filteredProducts = products.filter(product => product.price < 1000);
+// console.log(filteredProducts);
 
-// 5
+// // 5
 
-const nmbrs = [1, 2, 3, 2, 4, 5, 1, 6, 7, 8, 5, 9];
-// Очікуваний результат: [3, 4, 6, 7, 8, 9]
-const uniqueNumbs = nmbrs.filter((numbers, idx, arr) => arr.indexOf(numbers) === idx);
-console.log(uniqueNumbs);
+// const nmbrs = [1, 2, 3, 2, 4, 5, 1, 6, 7, 8, 5, 9];
+// // Очікуваний результат: [3, 4, 6, 7, 8, 9]
+// const uniqueNumbs = nmbrs.filter((numbers, idx, arr) => arr.indexOf(numbers) === idx);
+// console.log(uniqueNumbs);
 
-// 6
-const activeUsers = [
-  { name: 'Alice', isActive: true },
-  { name: 'Bob', isActive: false },
-  { name: 'Charlie', isActive: true },
-  { name: 'David', isActive: false },
-];
-// Очікуваний результат: [{ name: 'Alice', isActive: true }, { name: 'Charlie', isActive: true }]
-const filteredUsrs = activeUsers.filter(user => user.isActive)
-console.log(filteredUsrs);
+// // 6
+// const activeUsers = [
+//   { name: 'Alice', isActive: true },
+//   { name: 'Bob', isActive: false },
+//   { name: 'Charlie', isActive: true },
+//   { name: 'David', isActive: false },
+// ];
+// // Очікуваний результат: [{ name: 'Alice', isActive: true }, { name: 'Charlie', isActive: true }]
+// const filteredUsrs = activeUsers.filter(user => user.isActive)
+// console.log(filteredUsrs);
 
-// 7
+// // 7
 
-const strings = ['hello', '', 'world', ' ', 'JavaScript', ''];
-// Очікуваний результат: ['hello', 'world', 'JavaScript']
-const fixedArr = strings.filter(string => string !== '' && string !== ' ')
-console.log(fixedArr);
+// const strings = ['hello', '', 'world', ' ', 'JavaScript', ''];
+// // Очікуваний результат: ['hello', 'world', 'JavaScript']
+// const fixedArr = strings.filter(string => string !== '' && string !== ' ')
+// console.log(fixedArr);
 
-// 8
+// // 8
 
-const usrs = [
-  { name: 'Alice', city: 'Kyiv' },
-  { name: 'Bob', city: 'Lviv' },
-  { name: 'Charlie', city: 'Kyiv' },
-  { name: 'David', city: 'Odesa' },
-];
-// Очікуваний результат: [{ name: 'Alice', city: 'Kyiv' }, { name: 'Charlie', city: 'Kyiv' }]
+// const usrs = [
+//   { name: 'Alice', city: 'Kyiv' },
+//   { name: 'Bob', city: 'Lviv' },
+//   { name: 'Charlie', city: 'Kyiv' },
+//   { name: 'David', city: 'Odesa' },
+// ];
+// // Очікуваний результат: [{ name: 'Alice', city: 'Kyiv' }, { name: 'Charlie', city: 'Kyiv' }]
 
-const cityOfUser = usrs.filter(user=> user.city === 'Kyiv')
-console.log(cityOfUser);
+// const cityOfUser = usrs.filter(user=> user.city === 'Kyiv')
+// console.log(cityOfUser);
 
-// 9
+// // 9
 
-const wrds = ['apple', 'banana', 'cherry', 'kiwi', 'grape'];
-// Очікуваний результат: ['apple', 'banana', 'cherry', 'grape']
-const wordsWithA = wrds.filter(word => word.includes('a'))
-console.log(wordsWithA);
+// const wrds = ['apple', 'banana', 'cherry', 'kiwi', 'grape'];
+// // Очікуваний результат: ['apple', 'banana', 'cherry', 'grape']
+// const wordsWithA = wrds.filter(word => word.includes('a'))
+// console.log(wordsWithA);
 
-// 10
+// // 10
 
-const values = [0, 1, false, 2, '', 3, null, 'hello', undefined, 'world'];
-// Очікуваний результат: [1, 2, 3, 'hello', 'world']
-const truthy = values.filter(value => value)
-console.log(truthy);
+// const values = [0, 1, false, 2, '', 3, null, 'hello', undefined, 'world'];
+// // Очікуваний результат: [1, 2, 3, 'hello', 'world']
+// const truthy = values.filter(value => value)
+// console.log(truthy);
+
+// 1
+
+// const nums = [1, 2, 3, 4, 5];
+
+// const nusSum = nums.reduce((acc, num) => acc + num, 0);
+
+// console.log(nusSum);
+
+// // 2
+
+// const num = [2, 3, 4];
+
+// const umltiolyNum = num.reduce((acc, number) => acc * number, 1);
+// console.log(umltiolyNum);
+
+// // 3
+
+// const arr = ['Hello', 'world', 'this', 'is', 'JavaScript'];
+
+// const string = arr.reduce((acc, word) => acc + ' ' + word, '');
+// console.log(string);
+
+// // 4
+
+// const fruits = ['apple', 'banana', 'apple', 'cherry', 'banana', 'apple'];
+
+// const obj = fruits.reduce((acc, fruit) => {
+//   acc[fruit] = (acc[fruit] || 0) + 1;
+//   return acc;
+// }, {});
+
+// console.log(obj);
+
+// // 6
+
+// const products = [
+//   { name: 'Laptop', price: 1000 },
+//   { name: 'Phone', price: 500 },
+//   { name: 'Tablet', price: 700 },
+// ];
+
+// const totalPrice = products.reduce((acc, product) => acc + product.price, 0);
+// console.log(totalPrice);
+
+// // 8
+
+// const votes = ['yes', 'no', 'yes', 'yes', 'no', 'yes', 'no'];
+
+// const totalVotes = votes.reduce((acc, vote) => {
+//   acc[vote] = (acc[vote] || 0) + 1;
+//   return acc;
+// }, {});
+// console.log(totalVotes);
+
+// const account = {
+//   owner: 'Mango',
+//   balance: 24000,
+//   discount: 0.1,
+//   orders: ['order-1', 'order-2', 'order-3'],
+//   changeDiscount(value) {
+//     this.discount = value;
+//   },
+//   showOrders() {
+//     return this.orders;
+//   },
+//   addOrder(cost, order) {
+//     this.balance -= cost;
+//     this.orders.push(order);
+//   },
+// };
+
+// account.changeDiscount(0.15);
+// console.log(account.discount); // 0.15
+
+// console.table(account.showOrders()); // ['order-1', 'order-2', 'order-3']
+
+// account.addOrder(5000, 'order-4');
+// console.log(account.balance); // 19000
+// console.table(account.showOrders()); // ['order-1', 'order-2', 'order-3', 'order-4']
+
+// // =================
+
+// const inventory = {
+//   items: ['Knife', 'Gas mask'],
+//   add(itemName) {
+//     console.log(`Adding ${itemName} to inventory`);
+
+//     this.items.push(itemName);
+//   },
+//   remove(itemName) {
+//     console.log(`Removing ${itemName} from inventory`);
+
+//     this.items = this.items.filter(item => item !== itemName);
+//   },
+// };
+
+// const invokeInventoryAction = function(itemName, action) {
+//   console.log(`Invoking action on ${itemName}`);
+//   action(itemName);
+// };
+
+// invokeInventoryAction('Medkit', inventory.add.bind(inventory));
+// // Invoking action on Medkit
+// // Adding Medkit to inventory
+
+// console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+
+// invokeInventoryAction('Gas mask', inventory.remove.bind(inventory));
+// // Invoking action on Gas mask
+// // Removing Gas mask from inventory
+
+// console.log(inventory.items); // ['Knife', 'Medkit']
+
+// =====
+
+// const user = {
+//   name: 'John Doe',
+//   age: 30,
+//   address: {
+//     street: '123 Main St',
+//     city: 'New York',
+//     state: 'NY',
+//     zip: '10001',
+//   },
+//   hobbies: ['reading', 'painting', 'coding'],
+//   greet() {
+//     console.log(`Hello, my name is ${this.name}!`);
+//   },
+// }
+
+// user.greet(); // Hello, my name is John Doe!
+
+// function showThis() {
+//   console.log('showthis this', this);
+//   console.log('showthis arguments', this.age);
+// }
+
+// showThis.bind(user)();
