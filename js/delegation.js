@@ -1,5 +1,5 @@
 const navContainer = document.querySelector('.js-list');
-console.log(navContainer);
+// console.log(navContainer);
 
 navContainer.addEventListener('click', onLinkClick);
 

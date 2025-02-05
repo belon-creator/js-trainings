@@ -1072,3 +1072,249 @@
 // }
 
 // showThis.bind(user)();
+
+// =================================================================
+
+/*
+ * Типів транзацкій всього два.
+ * Можна покласти або зняти гроші з рахунку.
+ */
+// const Transaction = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// };
+
+// /*
+//  * Кожна транзакція - це об'єкт з властивостями: id, type і amount
+//  */
+
+// const account = {
+//   // Поточний баланс рахунку
+//   balance: 0,
+
+//   // Історія транзакцій
+//   transactions: [],
+
+//   /*
+//    * Метод створює і повертає об'єкт транзакції.
+//    * Приймає суму і тип транзакції.
+//    */
+//   createTransaction(amount, type, balance) {
+//     const transaction = {
+//       id: Date.now(),
+//       type,
+//       amount,
+//       balance,
+//     };
+//     this.transactions.push(transaction);
+
+//     return transaction;
+//   },
+
+//   /*
+//    * Метод відповідає за додавання суми до балансу.
+//    * Приймає суму танзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його в історію транзакцій
+//    */
+//   deposit(amount) {
+//     if (amount <= 0) {
+//       console.log('dccfdv');
+//       return;
+//     }
+//     const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+//     this.balance += amount;
+//     this.transactions.push(transaction);
+
+//     return transaction;
+//   },
+
+//   /*
+//    * Метод відповідає за зняття суми з балансу.
+//    * Приймає суму танзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його в історію транзакцій.
+//    *
+//    * Якщо amount більше, ніж поточний баланс, виводь повідомлення
+//    * про те, що зняття такої суми не можливо, недостатньо коштів.
+//    */
+//   withdraw(amount) {
+//     if (amount <= 0) {
+//       console.log('dccfdv');
+//       return;
+//     }
+
+//     if (amount > this.balance) {
+//       console.log('Not enough funds');
+//       return;
+//     }
+//     const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+//     this.balance -= amount;
+//     this.transactions.push(transaction);
+
+//     return transaction;
+//   },
+
+//   /*
+//    * Метод повертає поточний баланс
+//    */
+//   getBalance() {
+//     return this.balance;
+//   },
+
+//   /*
+//    * Метод шукає і повертає об'єкт транзакції по id
+//    */
+//   getTransactionDetails(id) {
+//     return this.transactions.find(transaction => transaction.id === id);
+//   },
+
+//   /*
+//    * Метод повертає кількість коштів
+//    * певного типу транзакції з усієї історії транзакцій
+//    */
+//   getTransactionTotal(type) {
+//     return this.transactions
+//       .filter(transaction => transaction.type === type)
+//       .reduce((acc, transaction) => acc + transaction.amount, 0);
+//   },
+// };
+
+// account.getBalance();
+// account.deposit(1000);
+// console.log(account);
+// account.withdraw(100);
+// console.log(account);
+// account.deposit(-1000);
+
+// console.table(account);
+// console.log(account);
+
+// 1
+
+const person = {
+  name: 'Alice',
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  },
+};
+
+person.greet(); // Очікуваний результат: "Hello, my name is Alice"
+
+// 2
+
+const notifier = {
+  message: 'You have a new notification!',
+  showMessage() {
+    setTimeout(() => {
+      console.log(this.message);
+    }, 1000);
+  },
+};
+
+notifier.showMessage();
+
+//   3
+
+const user = {
+  name: 'Bob',
+  printName() {
+    console.log(this.name);
+  },
+};
+
+user.printName();
+
+// 4
+
+class Car {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+
+  describeCar() {
+    console.log(`This car is a ${this.brand} ${this.model}.`);
+  }
+}
+
+const myCar = new Car('Toyota', 'Corolla');
+myCar.describeCar(); // Очікуваний результат: "This car is a Toyota Corolla."
+
+// 5
+
+const prsn = {
+  firstName: 'John',
+  lastName: 'Doe',
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+
+const getName = prsn.getFullName.bind(prsn);
+console.log(getName()); // Очікуваний результат: "John Doe"
+
+//   6
+
+function Person(name) {
+  this.name = name;
+  this.introduce = this.introduce.bind(this);
+}
+
+Person.prototype.introduce = function () {
+  console.log(`Hi, my name is ${this.name}`);
+};
+
+const alice = new Person('Alice');
+alice.introduce(); // Очікуваний результат: "Hi, my name is Alice"
+
+//   7
+
+const dog = {
+  name: 'Buddy',
+  bark() {
+    console.log(`${this.name} says woof!`);
+  },
+};
+
+dog.bark();
+
+//   8
+
+const cat = {
+    name: 'Whiskers',
+    meow() {
+      setTimeout(() => { // Використовуємо стрілкову функцію
+        console.log(`${this.name} says meow!`);
+      }, 1000);
+    },
+  };
+  
+  cat.meow(); 
+  // Через 1 секунду: "Whiskers says meow!"
+  
+
+// 9
+
+function greet() {
+  console.log(`Hello, my name is ${this.name}`);
+}
+
+const usr = { name: 'Emma' };
+
+greet.call(usr); // Очікуваний результат: "Hello, my name is Emma"
+
+//   10
+
+const counter = {
+  count: 0,
+  increment() {
+    function add = () => {
+       this.count++;
+    }
+    add();
+  },
+};
+
+counter.increment();
+console.log(counter.count); // Очікуваний результат: 1
