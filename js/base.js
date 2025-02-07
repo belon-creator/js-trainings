@@ -1190,131 +1190,292 @@
 // console.table(account);
 // console.log(account);
 
-// 1
+// // 1
 
-const person = {
-  name: 'Alice',
-  greet() {
-    console.log(`Hello, my name is ${this.name}`);
-  },
-};
+// const person = {
+//   name: 'Alice',
+//   greet() {
+//     console.log(`Hello, my name is ${this.name}`);
+//   },
+// };
 
-person.greet(); // Очікуваний результат: "Hello, my name is Alice"
+// person.greet(); // Очікуваний результат: "Hello, my name is Alice"
 
-// 2
+// // 2
 
-const notifier = {
-  message: 'You have a new notification!',
-  showMessage() {
-    setTimeout(() => {
-      console.log(this.message);
-    }, 1000);
-  },
-};
+// const notifier = {
+//   message: 'You have a new notification!',
+//   showMessage() {
+//     setTimeout(() => {
+//       console.log(this.message);
+//     }, 1000);
+//   },
+// };
 
-notifier.showMessage();
+// notifier.showMessage();
 
-//   3
+// //   3
 
-const user = {
-  name: 'Bob',
-  printName() {
-    console.log(this.name);
-  },
-};
+// const user = {
+//   name: 'Bob',
+//   printName() {
+//     console.log(this.name);
+//   },
+// };
 
-user.printName();
+// user.printName();
 
-// 4
+// // 4
 
-class Car {
-  constructor(brand, model) {
-    this.brand = brand;
-    this.model = model;
-  }
+// class Car {
+//   constructor(brand, model) {
+//     this.brand = brand;
+//     this.model = model;
+//   }
 
-  describeCar() {
-    console.log(`This car is a ${this.brand} ${this.model}.`);
-  }
-}
+//   describeCar() {
+//     console.log(`This car is a ${this.brand} ${this.model}.`);
+//   }
+// }
 
-const myCar = new Car('Toyota', 'Corolla');
-myCar.describeCar(); // Очікуваний результат: "This car is a Toyota Corolla."
+// const myCar = new Car('Toyota', 'Corolla');
+// myCar.describeCar(); // Очікуваний результат: "This car is a Toyota Corolla."
 
-// 5
+// // 5
 
-const prsn = {
-  firstName: 'John',
-  lastName: 'Doe',
-  getFullName() {
-    return `${this.firstName} ${this.lastName}`;
-  },
-};
+// const prsn = {
+//   firstName: 'John',
+//   lastName: 'Doe',
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
 
-const getName = prsn.getFullName.bind(prsn);
-console.log(getName()); // Очікуваний результат: "John Doe"
+// const getName = prsn.getFullName.bind(prsn);
+// console.log(getName()); // Очікуваний результат: "John Doe"
 
-//   6
+// //   6
 
-function Person(name) {
-  this.name = name;
-  this.introduce = this.introduce.bind(this);
-}
+// function Person(name) {
+//   this.name = name;
+//   this.introduce = this.introduce.bind(this);
+// }
 
-Person.prototype.introduce = function () {
-  console.log(`Hi, my name is ${this.name}`);
-};
+// Person.prototype.introduce = function () {
+//   console.log(`Hi, my name is ${this.name}`);
+// };
 
-const alice = new Person('Alice');
-alice.introduce(); // Очікуваний результат: "Hi, my name is Alice"
+// const alice = new Person('Alice');
+// alice.introduce(); // Очікуваний результат: "Hi, my name is Alice"
 
-//   7
+// //   7
 
-const dog = {
-  name: 'Buddy',
-  bark() {
-    console.log(`${this.name} says woof!`);
-  },
-};
+// const dog = {
+//   name: 'Buddy',
+//   bark() {
+//     console.log(`${this.name} says woof!`);
+//   },
+// };
 
-dog.bark();
+// dog.bark();
 
-//   8
+// //   8
 
-const cat = {
-    name: 'Whiskers',
-    meow() {
-      setTimeout(() => { // Використовуємо стрілкову функцію
-        console.log(`${this.name} says meow!`);
-      }, 1000);
-    },
-  };
-  
-  cat.meow(); 
-  // Через 1 секунду: "Whiskers says meow!"
-  
+// const cat = {
+//     name: 'Whiskers',
+//     meow() {
+//       setTimeout(() => { // Використовуємо стрілкову функцію
+//         console.log(`${this.name} says meow!`);
+//       }, 1000);
+//     },
+//   };
 
-// 9
+//   cat.meow();
+//   // Через 1 секунду: "Whiskers says meow!"
 
-function greet() {
-  console.log(`Hello, my name is ${this.name}`);
-}
+// // 9
 
-const usr = { name: 'Emma' };
+// function greet() {
+//   console.log(`Hello, my name is ${this.name}`);
+// }
 
-greet.call(usr); // Очікуваний результат: "Hello, my name is Emma"
+// const usr = { name: 'Emma' };
 
-//   10
+// greet.call(usr); // Очікуваний результат: "Hello, my name is Emma"
 
-const counter = {
-  count: 0,
-  increment() {
-    function add = () => {
-       this.count++;
-    }
-    add();
-  },
-};
+// //   10
 
-counter.increment();
-console.log(counter.count); // Очікуваний результат: 1
+// const counter = {
+//   count: 0,
+//   increment() {
+//     function add = () => {
+//        this.count++;
+//     }
+//     add();
+//   },
+// };
+
+// counter.increment();
+// console.log(counter.count); // Очікуваний результат: 1
+
+// // 1. Привітання користувача
+// // Створи об'єкт user з властивістю name і методом greet, який виводить у консоль рядок:
+// const user = {
+//   name: 'Alex',
+//   greetName() {
+//     console.log(`Hi my mame is ${this.name}`);
+//   },
+// };
+// user.greetName();
+// // "Привіт, мене звати Ім'я!"
+// // Де Ім'я — це значення властивості name цього об'єкта.
+
+// // 2. Лічильник
+// // Створи об'єкт counter з властивістю count, яка починається з 0, та методом increment,
+// //  який збільшує count на 1 і виводить нове значення в консоль.
+
+// const counter = {
+//   count: 0,
+
+//   increaseCount() {
+//     this.count += 1;
+//     console.log(this.count);
+//   },
+//   decreaseCount() {
+//     this.count -= 1;
+//     console.log(this.count);
+//   },
+// };
+
+// counter.increaseCount();
+// counter.increaseCount();
+// counter.increaseCount();
+// counter.decreaseCount();
+
+// // 3. Опис автомобіля
+// // Створи об'єкт car з властивостями brand і model та методом getInfo,
+// //  який повертає рядок у форматі: "Це автомобіль Brand Model."
+// // Де Brand і Model беруться з відповідних властивостей об'єкта.
+
+// const car = {
+//   brand: 'Audi',
+//   model: 'SQ8',
+//   showCar() {
+//     console.log(`My car is ${this.brand} ${this.model}`);
+//   },
+// };
+// car.showCar();
+
+// // 4. Витрати користувача
+// // Створи об'єкт wallet з початковим балансом 1000 і методом spend(amount),
+// // який зменшує баланс на amount і виводить у консоль залишок.
+
+// const wallet = {
+//   balance: 1000,
+//   spend(amount) {
+//     if (amount <= this.balance) {
+//       return (this.balance -= amount);
+//     } else {
+//       return 'str';
+//     }
+//   },
+// };
+
+// console.log(wallet.spend(200));
+
+// // 5. Додавання товару до кошика
+// // Створи об'єкт cart із масивом items та методом addItem(item),
+// //  який додає переданий item у масив і виводить оновлений список товарів.
+
+// const catr = {
+//   items: [],
+//   addItem(item) {
+//     this.items.push(item);
+//     console.log(this.items);
+//   },
+// };
+
+// catr.addItem('Cat food');
+// catr.addItem('Beer');
+
+// // 6. Таймер зі стрілковою функцією
+// // Створи об'єкт timer із методом start,
+// //  який через 2 секунди виводить повідомлення: "Час вийшов!"
+// // Використай setTimeout та стрілкову функцію, щоб зберегти правильний this.
+
+// const timer = {
+//   start() {
+//     setTimeout(() => {
+//       console.log('Час вийшов!');
+//     }, 2000);
+//   },
+// };
+
+// timer.start();
+// // 7. Видалення користувача
+// // Створи об'єкт usersList, який містить масив users.
+// //  Додай метод removeUser(name), який видаляє користувача з масиву
+// // та виводить оновлений список.
+
+// const usersList = {
+//   users: ['Alice', 'Bob', 'Charlie'],
+
+//   removeUser(name) {
+//     this.users.map(user => {
+//       if (user === name) {
+//         this.users.splice(this.users.indexOf(user), 1);
+//         return console.log(this.users);
+//       }
+//     });
+//   },
+// };
+// usersList.removeUser('Alice');
+// usersList.removeUser('Bob');
+
+// // 8. Перемикання стану
+// // Створи об'єкт toggle з властивістю isOn: false і методом switch(),
+// // який змінює isOn на протилежне значення та виводить його у консоль.
+
+// const toggle = {
+//   isOn: false,
+
+//   switch() {
+//     this.isOn = !this.isOn;
+//     console.log(this.isOn);
+//   },
+// };
+
+// toggle.switch();
+
+// // 9. Логін користувача
+// // Створи об'єкт userAuth з властивістю isLoggedIn:
+// //  false та методом login(), який змінює isLoggedIn на true і
+// //  виводить повідомлення: "Користувач увійшов у систему!"
+
+// const userAuth = {
+//   isLoggedIn: false,
+
+//   login() {
+//     this.isLoggedIn = true;
+//     console.log('Користувач увійшов у систему!');
+//   },
+// };
+
+// userAuth.login();
+
+// // 10. Вивід адреси
+// // Створи об'єкт address з властивостями city та street і
+// // методом getAddress(), який повертає рядок: "Адреса: місто, вулиця."
+// // Де місто і вулиця беруться з об'єкта.
+
+// const address = {
+//   city: 'Lviv',
+//   street: 'Qwerty',
+
+//   getAddress() {
+//     console.log(`Адреса: ${this.city}, ${this.street}`);
+//   },
+// };
+
+// address.getAddress();
+
