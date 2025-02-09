@@ -1479,3 +1479,144 @@
 
 // address.getAddress();
 
+const user = {
+  name: 'Alice',
+  greet() {
+    console.log(`Привіт, мене звати ${this.name}!`);
+  },
+};
+
+const anotherUser = { name: 'Bob' };
+
+console.log(user.greet.call(anotherUser));
+// Використай call, щоб вивести "Привіт, мене звати Bob!"
+
+// 2
+
+const cart = {
+  items: [],
+  addItem(item) {
+    this.items.push(item);
+    console.log(`Додано товар: ${item}. Поточний список:`, this.items);
+  },
+};
+
+const addToCart = cart.addItem.bind(cart);
+addToCart('Apple');
+addToCart('Banana');
+
+// 3
+
+const person = { name: 'John' };
+
+function introduce() {
+  console.log(`Hi, my name is ${this.name}`);
+}
+
+introduce.call(person);
+// Використай call для виклику introduce з person
+
+// 4
+
+function calculateArea() {
+  return this.width * this.height;
+}
+
+const rectangle = { width: 10, height: 5 };
+
+console.log(calculateArea.call(rectangle));
+// Використай call, щоб знайти площу
+
+// 5
+
+const timer = {
+  message: 'Час вийшов!',
+  start() {
+    setTimeout(
+      function () {
+        console.log(this.message);
+      }.bind(this),
+      2000,
+    );
+  },
+};
+
+timer.start();
+
+//   6
+
+const userList = {
+  users: ['Alice', 'Bob', 'Charlie'],
+  removeUser(name) {
+    this.users = this.users.filter(user => user !== name);
+    console.log(`Після видалення ${name}:`, this.users);
+  },
+};
+
+const anotherList = { users: ['Emma', 'Liam', 'Olivia'] };
+
+userList.removeUser.call(anotherList, 'Liam');
+
+// Використай call, щоб видалити 'Liam' з anotherList
+
+//   7
+
+function describeCar() {
+  console.log(`Це автомобіль ${this.brand} ${this.model}.`);
+}
+
+const car1 = { brand: 'Toyota', model: 'Corolla' };
+const car2 = { brand: 'BMW', model: 'X5' };
+
+describeCar.call(car1);
+describeCar.call(car2);
+
+// Використай call для car1 і car2
+
+//   8
+
+const button = {
+  message: 'Натиснуто кнопку!',
+  handleClick() {
+    console.log(this.message);
+  },
+};
+
+// Прив’яжи handleClick до button і збережи у змінну boundClick
+const boundClick = button.handleClick.bind(button);
+
+boundClick();
+
+// 9
+
+const wallet = {
+  balance: 500,
+  spend(amount) {
+    if (this.balance >= amount) {
+      this.balance -= amount;
+      console.log(`Витрачено ${amount}, залишок: ${this.balance}`);
+    } else {
+      console.log('Недостатньо коштів!');
+    }
+  },
+};
+
+const myWallet = { balance: 300 };
+
+// Використай call, щоб витратити 100 з myWallet
+
+wallet.spend.call(myWallet, 100);
+
+// 10
+
+const math = {
+    multiply(num, factor) {
+      return num * factor;
+    },
+  };
+  
+  // Створи функцію double, яка множить число на 2, використовуючи bind
+  const double = math.multiply.bind(null, 2)
+  
+  console.log(double(5)); // Очікувано: 10
+  
