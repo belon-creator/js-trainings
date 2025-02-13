@@ -1479,144 +1479,696 @@
 
 // address.getAddress();
 
-const user = {
-  name: 'Alice',
-  greet() {
-    console.log(`Привіт, мене звати ${this.name}!`);
-  },
+// const user = {
+//   name: 'Alice',
+//   greet() {
+//     console.log(`Привіт, мене звати ${this.name}!`);
+//   },
+// };
+
+// const anotherUser = { name: 'Bob' };
+
+// console.log(user.greet.call(anotherUser));
+// // Використай call, щоб вивести "Привіт, мене звати Bob!"
+
+// // 2
+
+// const cart = {
+//   items: [],
+//   addItem(item) {
+//     this.items.push(item);
+//     console.log(`Додано товар: ${item}. Поточний список:`, this.items);
+//   },
+// };
+
+// const addToCart = cart.addItem.bind(cart);
+// addToCart('Apple');
+// addToCart('Banana');
+
+// // 3
+
+// const person = { name: 'John' };
+
+// function introduce() {
+//   console.log(`Hi, my name is ${this.name}`);
+// }
+
+// introduce.call(person);
+// // Використай call для виклику introduce з person
+
+// // 4
+
+// function calculateArea() {
+//   return this.width * this.height;
+// }
+
+// const rectangle = { width: 10, height: 5 };
+
+// console.log(calculateArea.call(rectangle));
+// // Використай call, щоб знайти площу
+
+// // 5
+
+// const timer = {
+//   message: 'Час вийшов!',
+//   start() {
+//     setTimeout(
+//       function () {
+//         console.log(this.message);
+//       }.bind(this),
+//       2000,
+//     );
+//   },
+// };
+
+// timer.start();
+
+// //   6
+
+// const userList = {
+//   users: ['Alice', 'Bob', 'Charlie'],
+//   removeUser(name) {
+//     this.users = this.users.filter(user => user !== name);
+//     console.log(`Після видалення ${name}:`, this.users);
+//   },
+// };
+
+// const anotherList = { users: ['Emma', 'Liam', 'Olivia'] };
+
+// userList.removeUser.call(anotherList, 'Liam');
+
+// // Використай call, щоб видалити 'Liam' з anotherList
+
+// //   7
+
+// function describeCar() {
+//   console.log(`Це автомобіль ${this.brand} ${this.model}.`);
+// }
+
+// const car1 = { brand: 'Toyota', model: 'Corolla' };
+// const car2 = { brand: 'BMW', model: 'X5' };
+
+// describeCar.call(car1);
+// describeCar.call(car2);
+
+// // Використай call для car1 і car2
+
+// //   8
+
+// const button = {
+//   message: 'Натиснуто кнопку!',
+//   handleClick() {
+//     console.log(this.message);
+//   },
+// };
+
+// // Прив’яжи handleClick до button і збережи у змінну boundClick
+// const boundClick = button.handleClick.bind(button);
+
+// boundClick();
+
+// // 9
+
+// const wallet = {
+//   balance: 500,
+//   spend(amount) {
+//     if (this.balance >= amount) {
+//       this.balance -= amount;
+//       console.log(`Витрачено ${amount}, залишок: ${this.balance}`);
+//     } else {
+//       console.log('Недостатньо коштів!');
+//     }
+//   },
+// };
+
+// const myWallet = { balance: 300 };
+
+// // Використай call, щоб витратити 100 з myWallet
+
+// wallet.spend.call(myWallet, 100);
+
+// // 10
+
+// const math = {
+//     multiply(num, factor) {
+//       return num * factor;
+//     },
+//   };
+
+//   // Створи функцію double, яка множить число на 2, використовуючи bind
+//   const double = math.multiply.bind(null, 2)
+
+//   console.log(double(5)); // Очікувано: 10
+
+// ------------------------------------------------
+
+// 1
+
+// const book = {
+//   title: 'War and Peace',
+//   author: 'Leo Tolstoy',
+//   getInfo() {
+//     return `Книга ${this.title} написана Автором ${this.author}`;
+//   },
+// };
+
+// console.log(book.getInfo());
+
+/*
+Створи об'єкт player з властивістю score (початково 0)
+ та методом increaseScore(), 
+ який збільшує score на 10 і виводить новий бал.
+
+
+
+Створи об'єкт clock з методом showTime(), 
+який виводить поточний час у форматі Год:Хв.
+
+Створи об'єкт bankAccount з властивістю balance та методом deposit(amount),
+ який додає суму до балансу та виводить оновлений баланс.
+
+Створи об'єкт movie з властивістю title та методом play(),
+ який виводить: "Відтворення фільму: Назва".*/
+
+// const player = {
+//   score: 0,
+//   increaseScore() {
+//     this.score += 10;
+//     console.log(`Твій новий бал: ${this.score}`);
+//   },
+// };
+// player.increaseScore();
+
+// //
+
+// const clock = {
+//   showTime() {
+//     const date = new Date();
+//     const hours = date.getHours().toString().padStart(2, '0');
+//     const minutes = date.getMinutes().toString().padStart(2, '0');
+//     console.log(`Current time is: ${hours}:${minutes}`);
+//   },
+// };
+// clock.showTime();
+
+// const bankAccount = {
+//   balance: 0,
+//   deposit(amount){
+//     this.balance += amount;
+//     console.log(`Your new balance is: ${this.balance}`);
+//   }
+// }
+
+// bankAccount.deposit(1000);
+
+// const users = ['Alice', 'Bob', 'Charlie', 'David'];
+
+// function logUsers(usersArray) {
+//   usersArray.forEach(user => console.log(user));
+// }
+
+// logUsers(users);
+
+// // Використання map
+// // 👉 Завдання: Є масив чисел. Використай map, щоб створити новий масив, де кожне число помножене на 2.
+
+// const numbers = [1, 2, 3, 4, 5];
+// function doubleNumbers(numbersArray) {
+//   return numbersArray.map(number => number * 2);
+// }
+
+// console.log(doubleNumbers(numbers)); // Очікувано: [2, 4, 6, 8, 10]
+
+// // 3. Використання filter
+// // 👉 Завдання: Є масив чисел. Використай filter, щоб залишити тільки парні числа.
+
+// const nmbers = [10, 15, 20, 25, 30, 35];
+
+// function getEvenNumbers(numbersArray) {
+//   return numbersArray.filter(number => number % 2 === 0);
+// }
+
+// console.log(getEvenNumbers(nmbers)); // Очікувано: [10, 20, 30]
+// // 4. Використання reduce
+// // 👉 Завдання: Є масив цін. Використай reduce,
+// // щоб порахувати загальну суму всіх цін.
+
+// const prices = [100, 200, 50, 150];
+
+// function getTotalPrice(pricesArray) {
+//   return pricesArray.reduce((acc, price) => (acc += price), 0);
+// }
+
+// console.log(getTotalPrice(prices)); // Очікувано: 500
+
+// // 5. Використання find
+// // 👉 Завдання: Є масив користувачів з віком. Використай find,
+// //  щоб знайти першого користувача, якому більше 18 років.
+
+// const usrs = [
+//   { name: 'Alex', age: 16 },
+//   { name: 'Bob', age: 20 },
+//   { name: 'Charlie', age: 17 },
+//   { name: 'David', age: 25 },
+// ];
+
+// function findAdult(usersArray) {
+//   return usersArray.find(user => user.age > 18);
+// }
+
+// console.log(findAdult(usrs)); // Очікувано: { name: 'Bob', age: 20 }
+
+// // 1. Використання forEach
+// // 👉 Завдання: Виведи у консоль імена всіх користувачів у форматі:
+// // "Користувач: Ім'я"
+
+// const users = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 30 },
+//   { name: 'Charlie', age: 22 },
+// ];
+
+// function logUserNames(usersArray) {
+//   return usersArray.forEach(user => console.log(`Користувач: ${user.name}`));
+// }
+
+// logUserNames(users);
+
+// // 2. Використання map
+// // 👉 Завдання: Створи новий масив, де кожен користувач матиме додаткову
+// //  властивість isAdult, яка true, якщо йому 18 або більше років,
+// // і false, якщо менше.
+
+// const usrs = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 17 },
+//   { name: 'Charlie', age: 30 },
+// ];
+
+// function markAdults(usersArray) {
+//   return usersArray.map(user => ({
+//     ...user,
+//     isAdult: user.age >= 18,
+//   }));
+// }
+
+// console.log(markAdults(usrs));
+// // 3. Використання filter
+// // 👉 Завдання: Знайди всіх користувачів,
+// //  які мають більше 1000 грн на балансі.
+
+// const usersWithBalance = [
+//   { name: 'Alice', balance: 500 },
+//   { name: 'Bob', balance: 1500 },
+//   { name: 'Charlie', balance: 2000 },
+// ];
+
+// function getRichUsers(usersArray) {
+//   return usersArray.filter(user => user.balance >= 1000);
+// }
+
+// console.log(getRichUsers(usersWithBalance));
+// // 4. Використання reduce
+// // 👉 Завдання: Підрахуй загальний баланс всіх користувачів.
+
+// const usersTotalBalance = [
+//   { name: 'Alice', balance: 500 },
+//   { name: 'Bob', balance: 1500 },
+//   { name: 'Charlie', balance: 2000 },
+// ];
+
+// /**
+//  *
+//  * @param {balance} usersArray
+//  * @returns total balance of all users
+//  */
+// function getTotalBalance(usersArray) {
+//   return usersArray.reduce((acc, usr) => (acc += usr.balance), 0);
+// }
+
+// console.log(getTotalBalance(usersTotalBalance)); // Очікувано: 4000
+
+// // 5. Використання find
+// // 👉 Завдання: Знайди користувача з іменем "Charlie".
+
+// const findUserName = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 30 },
+//   { name: 'Charlie', age: 22 },
+// ];
+
+// function findCharlie(usersArray) {
+//   return usersArray.find(user => user.name === 'Charlie');
+// }
+
+// console.log(findCharlie(findUserName));
+
+// // 6. Використання some
+// // 👉 Завдання: Перевір, чи є хоча б один користувач,
+// // який має баланс більше 3000 грн.
+
+// const usersBalance = [
+//   { name: 'Alice', balance: 500 },
+//   { name: 'Bob', balance: 1500 },
+//   { name: 'Charlie', balance: 4000 },
+// ];
+
+// function hasRichUser(usersArray) {
+//   return usersArray.some(rich => rich.balance >= 3000);
+// }
+
+// console.log(hasRichUser(usersBalance)); // Очікувано: true
+
+// // 7. Використання every
+// // 👉 Завдання: Перевір, чи всі користувачі старші за 18 років.
+
+// const checkUsersAge = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 17 },
+//   { name: 'Charlie', age: 30 },
+// ];
+
+// function areAllAdults(usersArray) {
+//   return usersArray.every(userAge => userAge.age >= 18);
+// }
+
+// console.log(areAllAdults(checkUsersAge)); // Очікувано: false
+
+// // 8. Використання sort
+// // 👉 Завдання: Відсортуй користувачів за віком
+// // (від наймолодшого до найстаршого).
+
+// const usersSort = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 30 },
+//   { name: 'Charlie', age: 22 },
+// ];
+
+// function sortUsersByAge(usersArray) {
+//   const copyArr = [...usersArray];
+
+//   return copyArr.sort((a, b) => a.age - b.age);
+// }
+
+// console.log(sortUsersByAge(usersSort));
+
+// // 9. Використання map
+// // 👉 Завдання: Створи новий масив,
+// // де кожен користувач має тільки ім'я і вік (без інших властивостей).
+
+// const Changdusers = [
+//   { name: 'Alice', age: 25, balance: 500 },
+//   { name: 'Bob', age: 30, balance: 1500 },
+//   { name: 'Charlie', age: 22, balance: 2000 },
+// ];
+
+// function extractNamesAndAges(usersArray) {
+//   return usersArray.map(user => ({ name: user.name, age: user.age }));
+// }
+
+// console.log(extractNamesAndAges(Changdusers));
+
+// // 10. Використання reduce
+// // 👉 Завдання: Порахуй загальний вік всіх користувачів.
+
+// const usersAge = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 30 },
+//   { name: 'Charlie', age: 22 },
+// ];
+
+// function getTotalAge(usersArray) {
+//   let total = 0;
+//   usersArray.map(user => (total += user.age));
+//   return total
+// }
+
+// console.log(getTotalAge(users)); // Очікувано: 77
+
+//
+// =========================================================
+//
+
+/*
+Напиши класс User для создания пользователя со следующим свойствами:
+
+name - строка
+age - число
+followers - число
+Добавь метод getInfo(), который, выводит строку: 
+User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
+*/
+
+// class User {
+//   constructor({ name, age, followers }) {
+//     (this.name = name), (this.age = age), (this.followers = followers);
+//   }
+//   getInfo() {
+//     return console.log(
+//       `User ${this.name} is ${this.age} years old and has ${this.followers} followers`,
+//     );
+//   }
+// }
+
+// const mango = new User({
+//   name: 'Mango',
+//   age: 2,
+//   followers: 20,
+// });
+
+// mango.getInfo(); // User Mango is 2 years old and has 20 followers
+
+// const poly = new User({
+//   name: 'Poly',
+//   age: 3,
+//   followers: 17,
+// });
+
+// poly.getInfo(); // User Poly is 3 years old and has 17 followers
+
+// //
+
+// /*
+// Напиши класс Storage, который будет создавать объекты для управления складом товаров.
+//  При вызове будет получать один аргумент - начальный массив товаров,
+//   и записывать его в свойство items.
+
+// Добавь методы класса:
+
+// getItems() - возвращает массив текущих товаров
+// addItem(item) - получает новый товар и добавляет его к текущим
+// removeItem(item) - получет товар и, если он есть, удаляет его из текущих
+// */
+
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
+
+//   getItems() {
+//     return this.items;
+//   }
+
+//   addItem(item) {
+//     this.items.push(item);
+//   }
+
+//   removeItem(item) {
+//     const index = this.items.indexOf(item);
+//     if (index !== -1) {
+//       this.items.splice(item, 1);
+//     }
+//   }
+// }
+
+// const storage = new Storage([
+//   'Нанитоиды',
+//   'Пролонгер',
+//   'Железные жупи',
+//   'Антигравитатор',
+// ]);
+
+// const items = storage.getItems();
+// console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
+
+// storage.addItem('Дроид');
+// console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
+
+// storage.removeItem('Пролонгер');
+// console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+
+// /*
+//   Напиши класс StringBuilder. На вход он получает один параметр - строку,
+//    которую записывает в свойство _value.
+
+// Добавь классу следующий функционал:
+
+// Геттер value - возвращает текущее значение поля _value
+// Метод append(str) - получает парметр str (строку) и добавляет ее в конец _value
+// Метод prepend(str) - получает парметр str (строку) и добавляет ее в начало value
+// Метод pad(str) - получает парметр str (строку) и добавляет ее в начало и в конец _value
+//   */
+
+// class StringBuilder {
+//   #value;
+//   constructor(string) {
+//     this.#value = string;
+//   }
+
+//   get value() {
+//     return this.#value;
+//   }
+
+//   append(str) {
+//     this.#value += str;
+//   }
+
+//   prepend(str) {
+//     this.#value = str + this.#value;
+//   }
+
+//   pad(str) {
+//     this.prepend(str);
+//     this.append(str);
+//   }
+// }
+
+// const builder = new StringBuilder('.');
+
+// builder.append('^');
+// console.log(builder.value); // '.^'
+
+// builder.prepend('^');
+// console.log(builder.value); // '^.^'
+
+// builder.pad('=');
+// console.log(builder.value); // '=^.^='
+
+// //
+
+// class Car {
+//   /*
+//    * Добавь статический метод `getSpecs(car)`,
+//    * который принимает объект-машину как параметр и выводит
+//    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
+//    */
+
+//   static getSpecs(car) {
+//     console.log(
+//       `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price}`,
+//     );
+//   }
+
+//   /*
+//    * Конструктор получает объект настроек.
+//    *
+//    * Добавь свойства будущеего экземпляра класса:
+//    *  speed - текущая скорость, изначально 0
+//    *  price - цена автомобиля
+//    *  maxSpeed - максимальная скорость
+//    *  isOn - заведен ли автомобиль, значения true или false. Изначально false
+//    *  distance - общий киллометраж, изначально 0
+//    */
+//   constructor({ price, maxSpeed }) {
+//     (this.speed = 0),
+//       (this.price = price),
+//       (this.maxSpeed = maxSpeed),
+//       (this.isOn = false),
+//       (this.distance = 0);
+//   }
+
+//   /*
+//    * Добавь геттер и сеттер для свойства price,
+//    * который будет работать с свойством цены автомобиля.
+//    */
+
+//   get price() {
+//     return this._price;
+//   }
+
+//   set price(newPrice) {
+//     this._price = newPrice;
+//   }
+
+//   /*
+//    * Добавь код для того чтобы завести автомобиль
+//    * Записывает в свойство isOn значение true
+//    */
+//   turnOn() {
+//     this.isOn = true;
+//   }
+
+//   /*
+//    * Добавь код для того чтобы заглушить автомобиль
+//    * Записывает в свойство isOn значение false,
+//    * и сбрасывает текущую скорость в 0
+//    */
+//   turnOff() {
+//     this.isOn = false;
+//     this.speed = 0;
+//   }
+
+//   /*
+//    * Добавялет к свойству speed полученное значение,
+//    * при условии что результирующая скорость
+//    * не больше чем значение свойства maxSpeed
+//    */
+//   accelerate(value) {
+//     if (this.speed + value <= this.maxSpeed) {
+//       this.speed += value;
+//     } else {
+//       this.speed = this.maxSpeed;
+//     }
+//   }
+
+//   /*
+//    * Отнимает от свойства speed полученное значение,
+//    * при условии что результирующая скорость не меньше нуля
+//    */
+//   decelerate(value) {
+//     if (value > 0) {
+//         this.speed -= value;
+//     }
+//   }
+
+//   /*
+//    * Добавляет в поле distance киллометраж (hours * speed),
+//    * но только в том случае если машина заведена!
+//    */
+//   drive(hours) {
+//     if (this.isOn) {
+//         this.hours * this.speed
+//     }
+//   }
+// }
+
+// const mustang = new Car({ maxSpeed: 200, price: 2000 });
+
+// mustang.turnOn();
+// mustang.accelerate(50);
+// mustang.drive(2);
+
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
+
+// mustang.decelerate(20);
+// mustang.drive(1);
+// mustang.turnOff();
+
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
+
+// console.log(mustang.price); // 2000
+// mustang.price = 4000;
+// console.log(mustang.price); // 4000
+
+const a = {
+  b: 5,
 };
-
-const anotherUser = { name: 'Bob' };
-
-console.log(user.greet.call(anotherUser));
-// Використай call, щоб вивести "Привіт, мене звати Bob!"
-
-// 2
-
-const cart = {
-  items: [],
-  addItem(item) {
-    this.items.push(item);
-    console.log(`Додано товар: ${item}. Поточний список:`, this.items);
-  },
-};
-
-const addToCart = cart.addItem.bind(cart);
-addToCart('Apple');
-addToCart('Banana');
-
-// 3
-
-const person = { name: 'John' };
-
-function introduce() {
-  console.log(`Hi, my name is ${this.name}`);
+function foo() {
+  console.log(this.b);
 }
 
-introduce.call(person);
-// Використай call для виклику introduce з person
+a.showThis = foo;
 
-// 4
-
-function calculateArea() {
-  return this.width * this.height;
-}
-
-const rectangle = { width: 10, height: 5 };
-
-console.log(calculateArea.call(rectangle));
-// Використай call, щоб знайти площу
-
-// 5
-
-const timer = {
-  message: 'Час вийшов!',
-  start() {
-    setTimeout(
-      function () {
-        console.log(this.message);
-      }.bind(this),
-      2000,
-    );
-  },
-};
-
-timer.start();
-
-//   6
-
-const userList = {
-  users: ['Alice', 'Bob', 'Charlie'],
-  removeUser(name) {
-    this.users = this.users.filter(user => user !== name);
-    console.log(`Після видалення ${name}:`, this.users);
-  },
-};
-
-const anotherList = { users: ['Emma', 'Liam', 'Olivia'] };
-
-userList.removeUser.call(anotherList, 'Liam');
-
-// Використай call, щоб видалити 'Liam' з anotherList
-
-//   7
-
-function describeCar() {
-  console.log(`Це автомобіль ${this.brand} ${this.model}.`);
-}
-
-const car1 = { brand: 'Toyota', model: 'Corolla' };
-const car2 = { brand: 'BMW', model: 'X5' };
-
-describeCar.call(car1);
-describeCar.call(car2);
-
-// Використай call для car1 і car2
-
-//   8
-
-const button = {
-  message: 'Натиснуто кнопку!',
-  handleClick() {
-    console.log(this.message);
-  },
-};
-
-// Прив’яжи handleClick до button і збережи у змінну boundClick
-const boundClick = button.handleClick.bind(button);
-
-boundClick();
-
-// 9
-
-const wallet = {
-  balance: 500,
-  spend(amount) {
-    if (this.balance >= amount) {
-      this.balance -= amount;
-      console.log(`Витрачено ${amount}, залишок: ${this.balance}`);
-    } else {
-      console.log('Недостатньо коштів!');
-    }
-  },
-};
-
-const myWallet = { balance: 300 };
-
-// Використай call, щоб витратити 100 з myWallet
-
-wallet.spend.call(myWallet, 100);
-
-// 10
-
-const math = {
-    multiply(num, factor) {
-      return num * factor;
-    },
-  };
-  
-  // Створи функцію double, яка множить число на 2, використовуючи bind
-  const double = math.multiply.bind(null, 2)
-  
-  console.log(double(5)); // Очікувано: 10
-  
+a.showThis()
