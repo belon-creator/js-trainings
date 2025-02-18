@@ -2162,13 +2162,161 @@ User ${имя} is ${возраст} years old and has ${кол-во фолове
 // mustang.price = 4000;
 // console.log(mustang.price); // 4000
 
-const a = {
-  b: 5,
-};
-function foo() {
-  console.log(this.b);
+// ===============================================================================
+
+// class Rectangle {
+//   constructor(length, width) {
+//     this.length = length;
+//     this.width = width;
+//   }
+
+//   getArea() {
+//     return this.length * this.width;
+//   }
+
+//   getPerimeter() {
+//     return 2 * (this.length + this.width);
+//   }
+// }
+
+// const rect = new Rectangle(10, 5);
+// console.log(rect.getArea()); // Очікувано: 50
+// console.log(rect.getPerimeter()); // Очікувано: 30
+
+// // ===================
+
+// class BankAccount {
+//   constructor(balance) {
+//     this.balance = balance;
+//   }
+
+//   deposit(amount) {
+//     return (this.balance += amount);
+//   }
+
+//   withdraw(amount) {
+//     if (this.balance - amount >= 0) {
+//       return (this.balance -= amount);
+//     }
+//   }
+
+//   getBalance() {
+//     return this.balance;
+//   }
+// }
+
+// const account = new BankAccount(1000);
+// account.deposit(500);
+// account.withdraw(200);
+// console.log(account.getBalance()); // Очікувано: 1300
+
+// // =================================
+
+// class Student {
+//   constructor(name, grades) {
+//     this.name = name;
+//     this.grades = grades;
+//   }
+
+//   getAverageGrade() {
+//     return (
+//       this.grades.reduce((acc, grade) => acc + grade, 0) / this.grades.length
+//     );
+//   }
+// }
+
+// const student = new Student('Alice', [90, 80, 100, 70]);
+// console.log(student.getAverageGrade()); // Очікувано: 85
+
+// // =============================
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+
+//   greet() {
+//     return console.log(
+//       `Привіт, мене звати ${this.name} і мені ${this.age} років.`,
+//     );
+//   }
+// }
+
+// const person = new Person('Bob', 25);
+// const newPerson = new Person('Asd', 18);
+
+// person.greet(); // Очікувано: "Привіт, мене звати Bob і мені 25 років."
+// newPerson.greet();
+
+// // ====================================
+
+// class Car {
+//   constructor(brand, model, year) {
+//     this.brand = brand;
+//     this.model = model;
+//     this.year = year;
+//   }
+
+//   getCarInfo() {
+//     return `Це ${this.brand} ${this.model}, рік випуску: ${this.year}.`;
+//   }
+// }
+
+// const car = new Car('Tesla', 'Model S', 2022);
+// console.log(car.getCarInfo()); // Очікувано: "Це Tesla Model S, рік випуску: 2022."
+
+// // ============================
+
+// class User {
+//   constructor(name, email, password) {
+//     this.name = name;
+//     this.email = email;
+//     this.password = password;
+//   }
+
+//   changePassword(newPassword) {
+//     this.password = newPassword
+//   }
+// }
+
+// const user = new User('Alice', 'alice@example.com', '123456');
+// user.changePassword('newpassword');
+// console.log(user); // Очікувано: { name: "Alice", email: "alice@example.com", password: "newpassword" }
+
+class Car {
+  constructor({ brand, model, price, year }) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+    this.year = year;
+  }
+
+  getInfo() {
+    return `This is ${this.brand} ${this.model} ${this.year} year, cost ${this.price}$`;
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
 }
 
-a.showThis = foo;
+const tesla = new Car({
+  brand: 'Tesla',
+  model: 'X',
+  price: 50000,
+  year: 2023,
+});
 
-a.showThis()
+const audi = new Car({
+  brand: 'Audi',
+  model: 'SQ8',
+  price: 100000,
+  year: 2023,
+});
+
+console.log(tesla.getInfo());
+console.log(audi.getInfo());
+
+tesla.changePrice(80000);
+console.log(tesla.getInfo());
