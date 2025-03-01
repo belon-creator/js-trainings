@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task 9</title>
-    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="../css/common.css" />
     <style>
       .widget {
         text-align: center;
@@ -36,6 +36,25 @@
       <button type="button" class="change-color">Change color</button>
     </div>
 
-    <script src="js/task-09.js" type="module"></script>
+    <button id="click-button">Click me</button>
+    <p>Clicks: <span id="click-count">0</span></p>
+
+    <input type="text" id="text-input" placeholder="Type something..." />
+    <p>Entered text: <span id="output-text">Nothing yet</span></p>
+
+    <input type="text" id="filter-input" placeholder="Search..." />
+    <ul id="item-list">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Cherry</li>
+      <li>Orange</li>
+      <li>Pineapple</li>
+    </ul>
+
+    <input type="text" id="task-input" placeholder="New task..." />
+    <button id="add-task">Add Task</button>
+    <ul id="task-list"></ul>
+
+    <script src="../js/hw1/task-09.js" type="module"></script>
   </body>
 </html>

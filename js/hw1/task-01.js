@@ -9,4 +9,3 @@ listChild.forEach(el => {
 
   console.log(`Category: ${heading} Elements: ${elCount}`);
 });
-
