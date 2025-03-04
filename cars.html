@@ -9,7 +9,22 @@
   </head>
   <body>
     <a class="nav-link-item" href="./index.html">Go back</a>
+
+    <div>
+      <h2>Favorite cars</h2>
+      <ul class="js-favorite-list"></ul>
+    </div>
+
+    <form action="submit" style="margin-bottom: 16px;" class="js-search-form">
+      <input type="text" name="search"  />
+      <select name="select">
+        <option value="model">Марка</option>
+        <option value="type">Модель</option>
+      </select>
+      <button>Search</button>
+    </form>
+
     <ul class="js-container gallery"></ul>
-    <script type="module" src="./js/cars .js"></script>
+    <script type="module" src="./js/cars.js"></script>
   </body>
 </html>

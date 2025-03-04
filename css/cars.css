@@ -32,3 +32,12 @@
   width: 100%;
   object-fit: cover;
 }
+
+.js-favorite{
+  display: inline-block;
+  font-size: 30px;
+}
+
+.js-favorite-active{
+  color: #f7f308;
+}
