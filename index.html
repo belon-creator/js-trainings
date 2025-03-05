@@ -25,6 +25,34 @@
       </li>
     </ul>   
 
+    <form id="test-form">
+      <label>
+          Логін:
+          <input type="text" name="login" id="login-input">
+      </label>
+      <br>
+      <label>
+          Пароль:
+          <input type="password" name="password" id="password-input">
+      </label>
+      <br>
+      <label>
+          Виберіть місто:
+          <select name="city" id="city-select">
+              <option value="kyiv">Київ</option>
+              <option value="lviv">Львів</option>
+              <option value="kharkiv">Харків</option>
+          </select>
+      </label>
+      <br>
+      <label>
+          Підписатися на новини:
+          <input name="subscribe" type="checkbox" id="subscribe-checkbox">
+      </label>
+      <br>
+      <button class="submit-btn" type="submit">Відправити</button>
+  </form>
+
     <script type="module" src="./js/delegation.js"></script>
     <script type="module" src="./js/base.js"></script>
   </body>

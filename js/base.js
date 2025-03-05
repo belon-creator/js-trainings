@@ -2426,3 +2426,71 @@ User ${имя} is ${возраст} years old and has ${кол-во фолове
 
 // console.log(getSortedUniqueSkills(users));
 // // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+
+// Завдання:
+// Обробити подію submit
+
+// Заборонити перезавантаження сторінки.
+// Вивести в консоль значення всіх полів форми при сабміті.
+// Обробити подію input
+
+// Виводити в консоль поточне значення поля логіну при кожному введенні символу.
+// Обробити подію change
+
+// Виводити повідомлення про зміну вибраного міста в <select>.
+// Обробити подію focus і blur
+
+// Додати підсвічування (наприклад, зміну кольору рамки) до полів логіну та пароля під час фокусу.
+// Автоматично фокусуватися на полі логіну при завантаженні сторінки.
+
+// Автоматично очищати поле пароля після втрати фокусу.
+
+// Змінювати текст кнопки при увімкненні чекбоксу
+
+// Якщо чекбокс підписки відмічений – змінити текст кнопки на "Підписатися".
+// Якщо не відмічений – повернути "Відправити".
+// Перевіряти довжину пароля перед відправкою форми
+
+// Якщо менше 6 символів – показувати alert і не відправляти форму.
+// Зберігати введене ім'я в localStorage
+
+// При перезавантаженні сторінки, якщо в localStorage є ім'я, підставляти його в поле логіну.
+// Додати кнопку "Очистити форму"
+
+// При натисканні має скидати всі значення в формі до початкових.
+
+const form = document.querySelector('#test-form');
+const loginInput = document.querySelector('#login-input');
+const pwdInput = document.querySelector('#password-input');
+const citySelect = document.querySelector('#city-select');
+const subscribeCheckbox = document.querySelector('#subscribe-checkbox');
+const submitBtn = document.querySelector('.submit-btn');
+
+const city = form.elements.city.value;
+
+
+form.addEventListener('submit', onFormSubmit);
+loginInput.addEventListener('input', onInput)
+citySelect.addEventListener('blur', onCityChange)
+
+function onFormSubmit(evt) {
+  evt.preventDefault();
+  const form = evt.target;
+  const login = form.elements.login.value;
+  const password = form.elements.password.value;
+  const subscription = form.elements.subscribe.checked;
+
+  console.log(`${login} ${password} ${city} ${subscription}`);
+
+  if (subscription) {
+    console.log('subscr checked');
+  }
+}
+
+function onInput(e) {
+    console.log(e.currentTarget.value);
+}
+
+function onCityChange() {
+    console.log(`City changed to ${city}`);
+}
