@@ -2440,7 +2440,8 @@ User ${имя} is ${возраст} years old and has ${кол-во фолове
 // Виводити повідомлення про зміну вибраного міста в <select>.
 // Обробити подію focus і blur
 
-// Додати підсвічування (наприклад, зміну кольору рамки) до полів логіну та пароля під час фокусу.
+// Додати підсвічування (наприклад, зміну кольору рамки)
+//  до полів логіну та пароля під час фокусу.
 // Автоматично фокусуватися на полі логіну при завантаженні сторінки.
 
 // Автоматично очищати поле пароля після втрати фокусу.
@@ -2459,38 +2460,175 @@ User ${имя} is ${возраст} years old and has ${кол-во фолове
 
 // При натисканні має скидати всі значення в формі до початкових.
 
-const form = document.querySelector('#test-form');
-const loginInput = document.querySelector('#login-input');
-const pwdInput = document.querySelector('#password-input');
-const citySelect = document.querySelector('#city-select');
-const subscribeCheckbox = document.querySelector('#subscribe-checkbox');
-const submitBtn = document.querySelector('.submit-btn');
+// const form = document.querySelector('#test-form');
+// const inputEl = document.querySelectorAll('input');
+// const loginInput = document.querySelector('#login-input');
+// const pwdInput = document.querySelector('#password-input');
+// const citySelect = document.querySelector('#city-select');
+// const subscribeCheckbox = document.querySelector('#subscribe-checkbox');
+// const submitBtn = document.querySelector('.submit-btn');
 
-const city = form.elements.city.value;
+// const city = form.elements.city.value;
 
+// form.addEventListener('submit', onFormSubmit);
+// loginInput.addEventListener('input', onInput);
+// citySelect.addEventListener('blur', onCityChange);
+// inputEl.forEach(element => {
+//   element.addEventListener('focus', function () {
+//     this.style.backgroundColor = 'teal';
+//   });
 
-form.addEventListener('submit', onFormSubmit);
-loginInput.addEventListener('input', onInput)
-citySelect.addEventListener('blur', onCityChange)
+//   element.addEventListener('blur', function () {
+//     this.style.backgroundColor = '';
+//   });
+// });
+
+// subscribeCheckbox.addEventListener('change', onCheckboxCnng)
+
+// function onCheckboxCnng() {
+//    if (subscribeCheckbox.checked) {
+//     console.log('subscr checked');
+//     submitBtn.textContent = 'Підписатися';
+//   } else {
+//     submitBtn.textContent = 'Відправити';
+//   }
+// }
+
+// function onFormSubmit(evt) {
+//   evt.preventDefault();
+//   const form = evt.target;
+//   const login = form.elements.login.value;
+//   const password = form.elements.password.value;
+//   const city = citySelect.value;
+//   const subscription = form.elements.subscribe.checked;
+
+//   console.log(`${login} ${password} ${city} ${subscription}`);
+
+//   if (password.length < 6) {
+//     alert('pwd should be longer 6 symbols');
+//     pwdInput.style.backgroundColor = 'red';
+//   }
+//   form.reset();
+// }
+
+// function onInput(e) {
+//   console.log(e.currentTarget.value);
+// }
+
+// function onCityChange() {
+//   console.log(`City changed to ${city}`);
+// }
+
+// =====================================
+
+// Обробити подію submit, щоб дані не відправлялися на сервер,
+//  а виводилися в консоль у вигляді об'єкта. ✅
+// Заборонити відправку форми, якщо поле "Ім'я" порожнє
+// (вивести alert із повідомленням).✅
+// Перевірити вік перед відправкою: якщо він менший за 18,
+//  вивести повідомлення "Вам має бути 18 років або більше".✅
+// Показувати повідомлення при зміні країни ("Ви вибрали: Україна/Польща/США").✅
+// Автоматично додавати "@gmail.com" до email,
+//  якщо користувач ввів лише ім'я (наприклад, ivan → ivan@gmail.com).✅
+// Реагувати на введення у поле ім'я: якщо довжина менша за 3 символи,
+//  зробити бордер червоним.✅
+// Дозволити кнопку "Надіслати" тільки при погодженні з умовами
+//  (checkbox має бути позначений).✅
+// Очистити всі поля після успішного сабміту. ✅
+// При втраті фокусу в полі email перевіряти, чи є в ньому "@",
+//  якщо немає – додавати червоне підсвічування. ✅
+// Підставляти вікористане ім'я у вітання
+// (наприклад, якщо введено "Олег", після натискання submit вивести:
+//  "Дякуємо, Олег! Дані відправлено."). ✅
+
+const refs = {
+  form: document.querySelector('#user-form'),
+  nameInput: document.querySelector('#name-input'),
+  emailInput: document.querySelector('#email-input'),
+  ageInput: document.querySelector('#age-input'),
+  countrySelect: document.querySelector('#country-select'),
+  conditions: document.querySelector('#terms-checkbox'),
+  submitBtn: document.querySelector('button'),
+  greetingMsg: document.querySelector('.greet-user'),
+};
+
+refs.form.addEventListener('submit', onFormSubmit);
+refs.countrySelect.addEventListener('change', onCountryCng);
+refs.emailInput.addEventListener('blur', onMailInput);
+refs.nameInput.addEventListener('blur', onNameInput);
+refs.conditions.addEventListener('change', onLicenseChange);
 
 function onFormSubmit(evt) {
   evt.preventDefault();
-  const form = evt.target;
-  const login = form.elements.login.value;
-  const password = form.elements.password.value;
-  const subscription = form.elements.subscribe.checked;
 
-  console.log(`${login} ${password} ${city} ${subscription}`);
+  if (!refs.nameInput.value.trim()) {
+    alert('required fields');
+    return false;
+  }
 
-  if (subscription) {
-    console.log('subscr checked');
+  const userage = Number(refs.ageInput.value);
+
+  if (userage < 18) {
+    console.log('Вам має бути 18 років або більше');
+    return;
+  }
+
+  const formData = new FormData(refs.form);
+  const data = {};
+
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+
+  console.log(data);
+
+  refs.greetingMsg.textContent = `Дякуємо, ${refs.nameInput.value}! Дані відправлено.`;
+
+  refs.form.reset();
+  refs.nameInput.style.borderColor = '';
+  refs.emailInput.style.borderColor = '';
+}
+
+function onCountryCng(e) {
+  const countryValues = {
+    ua: 'Україна',
+    pl: 'Польща',
+    us: 'США',
+  };
+
+  const selectedCountry = countryValues[e.currentTarget.value];
+  console.log(`Ви вибрали: ${selectedCountry}`);
+}
+
+function onMailInput() {
+  const emailInputValue = refs.emailInput.value.trim();
+
+  if (!emailInputValue.includes('@')) {
+    refs.emailInput.value = emailInputValue + '@gmail.com';
+    refs.emailInput.style.borderColor = 'red';
+  } else {
+    refs.emailInput.style.borderColor = '';
   }
 }
 
-function onInput(e) {
-    console.log(e.currentTarget.value);
+function onNameInput(e) {
+  const nameLength = Number(e.currentTarget.value.length);
+
+  refs.nameInput.style.borderColor = nameLength < 3 ? 'red' : '';
 }
 
-function onCityChange() {
-    console.log(`City changed to ${city}`);
+function onLicenseChange() {
+  if (refs.conditions.checked) {
+    refs.submitBtn.removeAttribute('disabled');
+  } else {
+    refs.submitBtn.setAttribute('disabled', 'disabled');
+  }
 }
+
+
+const parent = document.querySelector("#parent");
+
+parent.addEventListener("click", (event) => {
+  console.log("event.target: ", event.target);
+  console.log("event.currentTarget: ", event.currentTarget);
+});

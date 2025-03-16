@@ -25,7 +25,7 @@
       </li>
     </ul>   
 
-    <form id="test-form">
+    <!-- <form id="test-form">
       <label>
           Логін:
           <input type="text" name="login" id="login-input">
@@ -51,7 +51,77 @@
       </label>
       <br>
       <button class="submit-btn" type="submit">Відправити</button>
+  </form> -->
+
+  <form id="user-form">
+    <label>
+      Ім'я:
+      <input type="text" id="name-input" name="name"  />
+    </label>
+    <br />
+    <label>
+      Email:
+      <input type="email" id="email-input" name="email" required />
+    </label>
+    <br />
+    <label>
+      Вік:
+      <input type="number" id="age-input" name="age" min="1" max="120" required />
+    </label>
+    <br />
+    <label>
+      Країна:
+      <select id="country-select" name="country">
+        <option value="ua">Україна</option>
+        <option value="pl">Польща</option>
+        <option value="us">США</option>
+      </select>
+    </label>
+    <br />
+    <label>
+      Погоджуюсь з умовами:
+      <input type="checkbox" id="terms-checkbox" name="terms" />
+    </label>
+    <br />
+    <button type="submit" disabled>Надіслати</button>
+    <p class="greet-user"></p>
   </form>
+
+  <div id="parent">
+    Parent
+    <div id="child">
+      Child
+      <div id="descendant">Descendant</div>
+    </div>
+  </div>
+  
+  <style>
+    #parent,
+#child,
+#descendant {
+  margin: 16px;
+  padding: 16px;
+  border: 4px solid #212121;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#parent {
+  background-color: #673ab7;
+}
+
+#child {
+  background-color: #448aff;
+}
+
+#descendant {
+  background-color: #ff9800;
+}
+  </style>
+  
 
     <script type="module" src="./js/delegation.js"></script>
     <script type="module" src="./js/base.js"></script>
