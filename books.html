@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>books</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <style>
+      .container {
+        width: 700px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .book {
+        width: 150px;
+        height: 430px;
+        border: 1px solid black;
+        margin: 8px;
+        padding: 5px;
+      }
+      h2,
+      h3,
+      p {
+        font-size: 16px;
+        margin: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="/">На главную</a></p>
+    <input class="find-by-author" type="text" placeholder="filter by author" />
+    <input class="find-by-genre" type="text" placeholder="filter by genre" />
+    <button class="newest">Show newest book</button>
+    <p>Available books: <span class="books-counter"></span></p>
+
+    <form class="add-book-form">
+      <input type="text" name="title" placeholder="Назва книги" required />
+      <input type="text" name="author" placeholder="Автор" required />
+      <input type="number" name="year" placeholder="Рік видання" required />
+      <input type="text" name="genre" placeholder="Жанр" required />
+      <input type="url" name="image" placeholder="URL обкладинки" required />
+      <label> <input type="checkbox" name="available" /> Доступна </label>
+      <button type="submit">Додати книгу</button>
+    </form>
+
+    <div class="container"></div>
+
+    <script type="module" src="./js/books.js"></script>
+  </body>
+</html>
