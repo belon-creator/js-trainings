@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Події в DOM</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+      .big {
+        transform: scale(1.2);
+      }
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 100px;
+        margin: 20px;
+      }
+      div {
+        border: 1px solid black;
+        margin: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="/">На главную</a></p>
+
+    <!-- Завдання 1, 2, 3 -->
+    <div id="buttons-container">
+      <button>Кнопка 1</button>
+      <button>Кнопка 2</button>
+      <button>Кнопка 3</button>
+    </div>
+
+    <ul class="some-list">
+        <li class="some-list-item">lorem</li>
+        <li class="some-list-item">Lorem, ipsum.</li>
+        <li class="some-list-item">Lorem, ipsum dolor.</li>
+        <li class="some-list-item">Lorem ipsum dolor sit.</li>
+        <li class="some-list-item">Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <!-- Завдання 4 -->
+    <div id="click-area">
+      <p>Клікни сюди або на кнопку</p>
+      <button>Натисни мене</button>
+    </div>
+
+    <!-- Завдання 5 -->
+    <table border="1" id="data-table">
+      <tr>
+        <td>Ячейка 1</td>
+        <td>Ячейка 2</td>
+      </tr>
+      <tr>
+        <td>Ячейка 3</td>
+        <td>Ячейка 4</td>
+      </tr>
+    </table>
+
+    <!-- Завдання 6 -->
+    <ul id="task-list">
+      <li>Завдання 1 <button class="delete-btn">❌</button></li>
+      <li>Завдання 2 <button class="delete-btn">❌</button></li>
+      <li>Завдання 3 <button class="delete-btn">❌</button></li>
+    </ul>
+
+    <!-- Завдання 7 -->
+    <form id="user-form">
+      <label>Ім'я: <input type="text" name="name" /></label><br />
+      <label>Email: <input type="email" name="email" /></label><br />
+      <label>Вік: <input type="number" name="age" /></label><br />
+      <label
+        >Країна:
+        <select name="country">
+          <option value="ua">Україна</option>
+          <option value="pl">Польща</option>
+          <option value="us">США</option>
+        </select> </label
+      ><br />
+      <label>
+        <input type="checkbox" name="terms" /> Погоджуюсь з умовами </label
+      ><br />
+      <button type="submit">Надіслати</button>
+    </form>
+
+    <!-- Завдання 8 -->
+    <section id="header">Header</section>
+    <section id="main">Main content</section>
+    <section id="footer">Footer</section>
+
+    <!-- Завдання 9 -->
+    <ul id="gallery">
+      <li><img src="https://via.placeholder.com/100" alt="Image 1" /></li>
+      <li><img src="https://via.placeholder.com/100" alt="Image 2" /></li>
+      <li><img src="https://via.placeholder.com/100" alt="Image 3" /></li>
+    </ul>
+
+    <!-- Завдання 10 -->
+    <div class="box">Клікни сюди</div>
+
+<script type="module" src="./js/target.js"></script>  </body>
+</html>
