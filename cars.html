@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/cars.css" />
     <title>Cars</title>
+    <style>
+      .cars-modal{
+        margin-right: auto;
+        margin-left: auto;
+        background-color: #1835dd;
+        width: 80%;
+        padding: 8px;
+       color: #fff;
+      }
+    </style>
   </head>
   <body>
     <a class="nav-link-item" href="./index.html">Go back</a>
@@ -15,8 +25,8 @@
       <ul class="js-favorite-list"></ul>
     </div>
 
-    <form action="submit" style="margin-bottom: 16px;" class="js-search-form">
-      <input type="text" name="search"  />
+    <form action="submit" style="margin-bottom: 16px" class="js-search-form">
+      <input type="text" name="search" />
       <select name="select">
         <option value="model">Марка</option>
         <option value="type">Модель</option>
@@ -25,6 +35,17 @@
     </form>
 
     <ul class="js-container gallery"></ul>
+    
+
+    <script src="
+https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js
+"></script>
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css
+"
+      rel="stylesheet"
+    />
     <script type="module" src="./js/cars.js"></script>
   </body>
 </html>
