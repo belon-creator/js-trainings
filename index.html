@@ -106,6 +106,46 @@
       <p class="greet-user"></p>
     </form>
 
+    <input type="text" id="task-filter" placeholder="Фільтрувати завдання..." />
+    <ul id="task-list">
+      <li>Прибрати кімнату</li>
+      <li>Купити продукти</li>
+      <li>Вивчити JavaScript</li>
+      <li>Зателефонувати другу</li>
+      <li>Підготувати презентацію</li>
+    </ul>
+
+    <ul id="link-list"></ul>
+
+    <style>
+      #status-box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 2px solid blue;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+
+      #status-box.active {
+        background-color: lightgreen;
+        border-color: green;
+      }
+    </style>
+
+    <div id="status-box" class="active">Клікніть, щоб змінити статус</div>
+
+    <ul id="order-items">
+  <li data-price="10.50">Яблука (1 кг)</li>
+  <li data-price="25.00">Молоко (1 л)</li>
+  <li data-price="5.75">Хліб</li>
+  <li data-price="15.20">Сир (200 г)</li>
+</ul>
+<p>Загальна вартість: <span id="total-price">0.00</span> грн</p>
+
     <script type="module" src="./js/delegation.js"></script>
     <script type="module" src="./js/base.js"></script>
     <script type="module" src="./js/base2.js"></script>

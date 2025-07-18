@@ -208,115 +208,189 @@
 // }
 // task10();
 
-const users = [
-  { id: 1, name: 'Alice', age: 30, isActive: true },
-  { id: 2, name: 'Bob', age: 24, isActive: false },
-  { id: 3, name: 'Charlie', age: 35, isActive: true },
-  { id: 4, name: 'David', age: 29, isActive: true },
-  { id: 5, name: 'Eve', age: 22, isActive: false },
+// const users = [
+//   { id: 1, name: 'Alice', age: 30, isActive: true },
+//   { id: 2, name: 'Bob', age: 24, isActive: false },
+//   { id: 3, name: 'Charlie', age: 35, isActive: true },
+//   { id: 4, name: 'David', age: 29, isActive: true },
+//   { id: 5, name: 'Eve', age: 22, isActive: false },
+// ];
+
+// function task1() {
+//   const userIdForFind = 2;
+//   for (const user of users) {
+//     if (userIdForFind === user.id) {
+//       console.log(user.name);
+//     }
+//   }
+// }
+// task1();
+
+// function task2() {
+//   users.push({ id: 6, name: 'Frank', age: 40, isActive: true });
+
+//   console.log(users); // Для перевірки
+// }
+// task2();
+
+// function task3() {
+//   const activeUsers = users.filter(user => user.isActive);
+
+//   console.log(activeUsers); // Для перевірки
+// }
+// task3();
+
+// function task4() {
+//   const userNameForFind = 'Charlie';
+//   for (const user of users) {
+//     if (userNameForFind === user.name) {
+//       console.log(user);
+//     } else {
+//       console.log('Користувача не знайдено');
+//     }
+//   }
+// }
+// task4();
+
+// function task5() {
+//   const userNames = users.map(user => user.name);
+
+//   console.log(userNames); // Для перевірки
+// }
+// task5();
+
+// function task6() {
+//   const userToChangeStatus = 4;
+
+//   for (const user of users) {
+//     if (userToChangeStatus === user.id) {
+//       user.isActive = false;
+//     }
+//   }
+
+//   console.log(users); // Для перевірки всього масиву
+// }
+// task6();
+
+// function task7() {
+//   const userIdToDelete = 1;
+
+//   // for (let i = 0; i < users.length; i+=1) {
+//   //     const userId = array[i];
+//   //      if (userIdToDelete === user.id) {
+//   //         users.splice()
+//   //     }
+//   // }
+
+//   for (const user of users) {
+//     if (userIdToDelete === user.id) {
+//       users.splice(user, 1);
+//     }
+//   }
+//   // Видаліть користувача з id 1 з масиву users.
+//   console.log(users); // Для перевірки
+// }
+// task7();
+
+// function task8() {
+//   const sortedUsers = users.sort((a, b) => {
+//     return a.age - b.age;
+//   });
+//   console.log(sortedUsers); // Для перевірки
+
+//   // Відсортуйте масив users за віком (age) у порядку зростання.
+// }
+// task8();
+
+// function task9() {
+//   const totalAge = users.reduce((total, user) => {
+//     return total + user.age;
+//   }, 0);
+//   const averageAge = totalAge / users.length;
+//   // Використовуючи метод reduce, обчисліть середній вік всіх користувачів.
+//   console.log(averageAge); // Для перевірки
+// }
+// task9();
+
+// function task10() {
+//   // Перевірте, чи всі користувачі старші за 18 років.
+//   users.every(user => console.log(user.age >= 18));
+//   // Перевірте, чи є хоча б один користувач, молодший за 25 років.
+//   users.some(user => console.log(user.age < 25));
+//   // Виведіть відповідні результати в консоль.
+// }
+// task10();
+
+const userInputEl = document.querySelector('#task-filter');
+const taskListEl = document.querySelector('#task-list');
+const listItemEl = taskListEl.querySelectorAll('li');
+
+console.log(taskListEl);
+console.log(listItemEl);
+
+userInputEl.addEventListener('input', onUserInputChange);
+
+function onUserInputChange(e) {
+  const userinput = e.currentTarget.value.toLowerCase().trim();
+  console.log(userinput);
+
+  listItemEl.forEach(item => {
+    // console.log(item.textContent.toLowerCase());
+    const taskTxt = item.textContent.toLowerCase();
+    if (taskTxt.includes(userinput)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none'; // Приховуємо елемент
+    }
+  });
+}
+
+const linksData = [
+  { text: 'Google', href: 'https://www.google.com' },
+  { text: 'OpenAI', href: 'https://openai.com' },
+  { text: 'GitHub', href: 'https://github.com' },
+  { text: 'MDN Web Docs', href: 'https://developer.mozilla.org/uk/' },
 ];
 
-function task1() {
-  const userIdForFind = 2;
-  for (const user of users) {
-    if (userIdForFind === user.id) {
-      console.log(user.name);
-    }
-  }
+const linkListEl = document.querySelector('#link-list');
+
+const links = linksData.map(link => {
+  const linkEl = document.createElement('li');
+  const aEl = document.createElement('a');
+
+  aEl.href = link.href;
+  aEl.textContent = link.text;
+
+  linkEl.append(aEl);
+
+  return linkEl;
+});
+
+linkListEl.append(...links);
+
+// ==========
+
+const changeStatusBoxEl = document.querySelector('#status-box');
+
+changeStatusBoxEl.addEventListener('click', onBoxClick);
+
+function onBoxClick() {
+  changeStatusBoxEl.classList.toggle('active');
 }
-task1();
 
-function task2() {
-  users.push({ id: 6, name: 'Frank', age: 40, isActive: true });
+/*
+Напишіть скрипт, який обчислить загальну вартість усіх товарів у списку ul#order-items.
+ Кожен елемент <li> має атрибут data-price, що містить вартість товару. 
+ Виведіть обчислену суму в span#total-price.
 
-  console.log(users); // Для перевірки
-}
-task2();
+Підказки:
+Отримайте доступ до всіх елементів li у списку.
+Використовуйте dataset.price для доступу до значення атрибута data-price.
+Не забудьте перетворити значення ціни на число.
+*/
 
-function task3() {
-  const activeUsers = users.filter(user => user.isActive);
+const orderItemsEl = document.querySelector('#order-items');
+const orderElements = orderItemsEl.querySelectorAll('li');
+const prices = document.querySelectorAll('li[data-price]')
 
-  console.log(activeUsers); // Для перевірки
-}
-task3();
-
-function task4() {
-  const userNameForFind = 'Charlie';
-  for (const user of users) {
-    if (userNameForFind === user.name) {
-      console.log(user);
-    } else {
-      console.log('Користувача не знайдено');
-    }
-  }
-}
-task4();
-
-function task5() {
-  const userNames = users.map(user => user.name);
-
-  console.log(userNames); // Для перевірки
-}
-task5();
-
-function task6() {
-  const userToChangeStatus = 4;
-
-  for (const user of users) {
-    if (userToChangeStatus === user.id) {
-      user.isActive = false;
-    }
-  }
-
-  console.log(users); // Для перевірки всього масиву
-}
-task6();
-
-function task7() {
-  const userIdToDelete = 1;
-
-  // for (let i = 0; i < users.length; i+=1) {
-  //     const userId = array[i];
-  //      if (userIdToDelete === user.id) {
-  //         users.splice()
-  //     }
-  // }
-
-  for (const user of users) {
-    if (userIdToDelete === user.id) {
-      users.splice(user, 1);
-    }
-  }
-  // Видаліть користувача з id 1 з масиву users.
-  console.log(users); // Для перевірки
-}
-task7();
-
-function task8() {
-  const sortedUsers = users.sort((a, b) => {
-    return a.age - b.age;
-  });
-  console.log(sortedUsers); // Для перевірки
-
-  // Відсортуйте масив users за віком (age) у порядку зростання.
-}
-task8();
-
-function task9() {
-  const totalAge = users.reduce((total, user) => {
-    return total + user.age;
-  }, 0);
-  const averageAge = totalAge / users.length;
-  // Використовуючи метод reduce, обчисліть середній вік всіх користувачів.
-  console.log(averageAge); // Для перевірки
-}
-task9();
-
-function task10() {
-  // Перевірте, чи всі користувачі старші за 18 років.
-  users.every(user => console.log(user.age >= 18));
-  // Перевірте, чи є хоча б один користувач, молодший за 25 років.
-  users.some(user => console.log(user.age < 25));
-  // Виведіть відповідні результати в консоль.
-}
-task10();
+console.log(prices.dataset);
